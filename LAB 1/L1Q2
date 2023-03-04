@@ -1,0 +1,37 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+//Write a program to read a text file (namely, text1.txt) that has a sequence of characters
+// that are delimited (separated) by special character (i.e., comma, semi colons, spaces, etc.).
+// The number of characters can vary from 1 to N. Your task is to :
+//        a. Calculate the number of characters retrieved from text1.txt without the special characters.
+//        b. Display all characters from the text file without the special characters.
+public class Main {
+    public static void main(String[] args) {
+        Solution("text1.txt",",");
+        Solution("text2.txt",", ");
+        Solution("text3.txt","; ");
+        Solution("text4.txt","\\d+"); //\\d+是数字，+=多个
+    }
+    public static void Solution(String filename,String regex){
+        try {
+            Scanner sc = new Scanner(new FileInputStream(filename));
+            int sum = 0;
+            StringBuilder SB = new StringBuilder();
+            while (sc.hasNextLine()) {
+                String[] line = sc.nextLine().split(regex);
+                for (String charac : line) {
+                    sum += charac.length();
+                    SB.append(charac);
+                }
+                SB.append("\n");
+            }
+            System.out.println("Total number of characters retrieved from text: "+sum);
+            System.out.println("The text: "+SB);
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found!");
+        }
+    }
+}
