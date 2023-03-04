@@ -1,0 +1,39 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.Scanner;
+//Part 1
+//2.Create a program to read the file (yourname_matrixNum.txt).
+// Display the contents of the file in the output console. [Project name : ReadMyLetter_matrixNum]
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(new FileInputStream("text1.txt"));
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
+            }
+            sc.close();
+ //Part 2
+//You will append your letter (from part one) with a second part of the letter dated the day of the last lab session of DS.
+// Assuming you fast forward to the future, reflect and describe:
+            sc=new Scanner(System.in);
+            PrintWriter writer = new PrintWriter(new FileOutputStream("text1.txt", true)); //true就不会重叠原本有的内容，而是会写在existing下面
+            writer.write("How you have performed in the class?\nAre you happy with your performance?\nWhat has learning DS taught you / what did you learn from DS?\nIs there any change to your target grade?\nWhat you did well during the course?\nWhat could have been done better during the course?");
+            writer.println();
+            String line;
+            System.out.println("Enter 'end' to stop entering the content");
+            while (!(line = sc.nextLine()).equals("end"))
+                writer.println(line);
+            writer.close();
+
+            sc=new Scanner(new FileInputStream("text1.txt"));
+            while(sc.hasNextLine()){
+                System.out.println(sc.nextLine());
+            }
+            sc.close();
+        }catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
+    }
+}
