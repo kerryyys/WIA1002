@@ -1,0 +1,61 @@
+public class Main {
+    public static void main(String[] args) {
+        Account account=new Account(1122,20000);
+        account.setAnnualInterestRate(4.5);
+        account.withdraw(2500);
+        account.deposit(3000);
+        System.out.printf("Balance: %.2f\n",account.getBalance());
+        System.out.printf("Monthly Interest: %.2f\n",account.getMonthlyInterest());
+        System.out.println("Date created: "+account.getDateCreated());
+    }
+}
+
+import java.util.Date;
+
+public class Account {
+    private int id;
+    private double balance;
+    private static double annualInterestRate=0;  //static because apply same rate to all account
+    private Date dateCreated=new Date();
+    Account(){
+        id=0;
+        balance=0;
+    }
+    Account(int id,double balance){
+        this.id=id;
+        this.balance=balance;
+    }
+    public int getID(){
+        return id;
+    }
+    public double getBalance(){
+        return balance;
+    }
+    public double getAnnualInterestRate(){
+        return annualInterestRate;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setBalance(double balance){
+        this.balance=balance;
+    }
+    public static void setAnnualInterestRate(double annualInterestRate){
+        Account.annualInterestRate=annualInterestRate;    //mean set to whole Account class
+    }
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+    public double getMonthlyInterestRate(){
+        return annualInterestRate/12;       //then cannot use this.annual....
+    }
+    public double getMonthlyInterest(){
+        return balance*getMonthlyInterestRate()/100;
+    }
+    public void withdraw(double amountWith) {
+             balance -= amountWith;
+    }
+    public void deposit(double deposit){
+         balance+=deposit;
+    }
+}
