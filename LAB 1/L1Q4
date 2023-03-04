@@ -1,0 +1,98 @@
+public class Main {
+    public static void main(String[] args) {
+        Account1 account1=new Account1("George",1122,1000);
+        account1.setAnnualInterestRate(1.5);
+        account1.deposit(30);
+        account1.deposit(40);
+        account1.deposit(50);
+        account1.withdraw(5);
+        account1.withdraw(4);
+        account1.withdraw(2);
+        System.out.printf("Name: %s\nInterest Rate: %.2f\nBalance: %.2f",account1.getName(),account1.getAnnualInterestRate(),account1.getBalance());
+        System.out.println();
+        System.out.println("Transaction");
+        for(Transaction t:account1.getTransactions()){
+            System.out.println(t.getDescription());
+        }
+    }
+}
+import java.util.ArrayList;
+
+public class Account1 extends Account{
+    private String name;
+    private ArrayList<Transaction> transactions;
+
+    Account1(String name,int id,double balance){  //super must on 1st line of constructor
+        super(id,balance);
+        this.name=name;
+        transactions=new ArrayList<>();
+    }
+    public String getName(){
+        return name;
+    }
+    public ArrayList<Transaction>getTransactions(){
+        return transactions;
+    }
+    @Override
+    public void withdraw(double amountWith) {
+        super.withdraw(amountWith);
+        String description=String.format("Amount Withdraw: %.2f\tDate: %s.\tBalance: %.2f",amountWith,getDateCreated(),getBalance());
+        transactions.add(new Transaction('W',amountWith,getBalance(),description));
+    }
+
+    @Override
+    public void deposit(double deposit) {
+        super.deposit(deposit);
+        String description=String.format("Amount deposited: %.2f\tDate: %s\tBalance: %.2f",deposit,getDateCreated(),getBalance());
+        transactions.add(new Transaction('D',deposit,getBalance(),description));
+    }
+}
+import java.util.Date;
+public class Transaction {
+private Date date=new Date();
+private char type;
+private double amount;
+private double balance;
+private String description;
+    Transaction(char type,double amount,double balance,String description){
+    this.type=type;
+    this.amount=amount;
+    this.balance=balance;
+    this.description=description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public double getAmount(){
+        return amount;
+    }
+    public double getBalance(){
+        return balance;
+    }
+    public char getType(){
+        return type;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setDate(Date date) {
+        this.date=date;
+    }
+    public void setType(char type){
+        this.type=type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
