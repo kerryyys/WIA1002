@@ -1,0 +1,69 @@
+public class Printer {
+    public static void main(String[] args) {
+
+        N newN = new N();
+        bannerr N = new bannerr(newN.getLowercase());
+        N.print();
+        //done
+
+        Z z = new Z();
+        bannerr Z = new bannerr(z.getLowercase());
+        Z.print();
+        //done
+
+        O o = new O();
+        bannerr O = new bannerr(o.getLowercase());
+        O.print();
+        //done
+
+        P p =  new P();
+        bannerr P = new bannerr(p.getLowercase());
+        P.print();
+        //done
+
+        Q q = new Q();
+        bannerr Q = new bannerr(q.getLowercase());
+        Q.print();
+        //done
+
+        R r = new R();
+        bannerr R = new bannerr(r.getLowercase());
+        R.print();
+        //done
+
+        S s =new S();
+        bannerr S = new bannerr(s.getLowercase());
+        S.print();
+        //done
+
+        T t = new T();
+        bannerr T = new bannerr(t.getLowercase());
+        T.print();
+        //done
+
+        U u = new U();
+        bannerr U = new bannerr(u.getLowercase());
+        U.print();
+        //done
+
+        V v = new V();
+        bannerr V = new bannerr(v.getLowercase());
+        V.print();
+        //done
+
+        W w = new W();
+        bannerr W = new bannerr(w.getLowercase());
+        W.print();
+        //done
+
+        X x = new X();
+        bannerr X = new bannerr(x.getLowercase());
+        X.print();
+        //done
+
+        Y y = new Y();
+        bannerr Y = new bannerr(y.getLowercase());
+        Y.print();
+        //done
+    }
+}
