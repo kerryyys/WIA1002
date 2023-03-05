@@ -1,0 +1,76 @@
+//Create a class SimpleNetwork to simulate ping command.
+// The class consists of the name, IP address, subnet mask and status (on/off) of a host.
+// The host can only ping each other if the hosts are from the same network.
+// The host is from same network if the (host IP address AND host Subnet Mask) is equal to (destination IP address AND host Subnet Mask).
+// Create a Tester class to test the program, given output below.
+public class Main {
+    public static void main(String[] args) {
+        SimpleNetwork network1 = new SimpleNetwork("Host 1", "10.1.1.1", "255.255.255.224", SimpleNetwork.UP);
+        SimpleNetwork network2 = new SimpleNetwork("Host 2", "10.1.1.2", "255.255.255.224", SimpleNetwork.DOWN);
+        SimpleNetwork network3 = new SimpleNetwork("Host 3", "10.1.1.70", "255.255.255.224", SimpleNetwork.UP);
+        SimpleNetwork network4 = new SimpleNetwork("Host 4", "10.1.1.15", "255.255.255.224", SimpleNetwork.UP);
+        System.out.println(network1);
+        System.out.println(network2);
+        System.out.println(network3);
+        System.out.println(network4);
+        network1.ping(network2);
+        network1.ping(network3);
+        network1.ping(network4);
+    }
+}
+
+
+public class SimpleNetwork {
+    public static final String UP="UP";
+    public static final String DOWN="DOWN";
+
+    private String name;
+    private String IP;
+    private String subnet;
+    private String status;
+
+    SimpleNetwork(String name, String IP, String subnet, String status){
+        this.name=name;
+        this.IP=IP;
+        this.subnet=subnet;
+        this.status=status;
+    }
+    private String getNetworkAddress(){
+        String[] ipOctets=IP.split("\\.");
+        String[] subnetOctets = subnet.split("\\.");
+        StringBuilder sb= new StringBuilder();
+        for(int i=0;i<4;i++){       // 32bits / 8 octets = 4 sections
+            sb.append(Integer.parseInt(ipOctets[i] )& Integer.parseInt(subnetOctets[i])).append('.');
+        }
+        //Eliminate the last '.'
+        sb.setLength(sb.length()-1);
+        return sb.toString();
+    }
+    public boolean isSameNetwork(SimpleNetwork host){
+        return subnet.equals(host.subnet) && getNetworkAddress().equals(host.getNetworkAddress());
+    }
+    private boolean isUp(){
+        return status.equals(UP);
+    }
+    private boolean canPing(SimpleNetwork host){
+        return isSameNetwork(host) && host.isUp() && isUp();
+    }
+    public void ping(SimpleNetwork host){
+        if(!canPing(host)) {
+            System.out.printf("%s cannot ping %s because ", name, host.name);
+            if (!isSameNetwork(host))
+                System.out.printf("the destination %s is located in different network.\n", host.name);
+            else if (!isUp()) {
+                System.out.printf("the source %s is down.\n", name);
+            } else
+                System.out.printf("the destination %s is down.\n", host.name);
+        }
+        else{
+            System.out.printf("%s can ping %s\n",name,host.name);
+        }
+    }
+
+    public String toString() {
+        return String.format("Host Name: %s IP: %s Subnet Mask: %s Status: %s", name, IP, subnet, status);
+    }
+}
