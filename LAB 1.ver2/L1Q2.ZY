@@ -1,0 +1,41 @@
+//Create a class that represents a Polynomial. The class is able to compute any polynomial function.
+// Create a Tester class to test the program, given output below.
+// Example Polynomial a =new Polynomial(degree, coefficientInArray).
+public class Main {
+    public static void main(String[] args) {
+        Polynomial poly=new Polynomial(3,new double[]{4.0,2.0,-0.5,-20.0});
+        System.out.println("The polynomial is "+poly.toString());
+        poly.calculate(2.0);
+        poly.calculate(-3.5);
+    }
+}
+
+public class Polynomial {
+    private int degree;
+    private double [] coefficientInArray;
+    Polynomial(int degree,double [] coefficientInArray){
+        this.degree=degree;
+        this.coefficientInArray=coefficientInArray;
+    }
+    public String toString(){
+    StringBuilder sb=new StringBuilder();
+    int deg=degree;
+    for(double coefficient : coefficientInArray){
+        sb.append(String.format("%s%s%s%s",coefficient>0?"+":"",coefficient,deg>0?"x":"",deg>1?"^"+deg:""));
+        deg--;
+    }
+    return sb.toString().substring(1);
+    }
+    public void calculate(double x){
+        System.out.println("when x = "+ x);
+        System.out.println(toString()+"= "+count(x));
+    }
+    private double count(double x){
+        double sum=0;
+        int deg=degree;
+        for(double coefficient : coefficientInArray){
+            sum+=coefficient * Math.pow(x,deg--);
+        }
+        return sum;
+    }
+}
