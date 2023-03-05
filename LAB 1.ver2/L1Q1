@@ -1,1 +1,53 @@
+//Create a class Time that represents time of the day. The class consists of attributes for the hour and minute.
+// The hour value ranges from 0 to 23 and the minute value ranges from 0 to 59.
+// The class consists of constructor that initializes the time and hour.
+// The class also consists of a method to check whether the time is valid and a method to display the time in hh:mm AM or hh:mm PM.
+// Create a Tester class to test the program, given output below.
+public class Main {
+    public static void main(String[] args) {
+        do{
+      Time time=new Time();
+      time.check();
+          time.display();
+      }while(true);
+    }
+}
 
+
+public class Time {
+    private int hour;
+    private int minutes;
+    private Scanner sc=new Scanner(System.in);
+    Time(){                   //better make constructor clean and clear
+        hour=0;
+        minutes=0;
+        System.out.print("Hour: ");
+        hour=sc.nextInt();
+        System.out.print("Minutes: ");
+        minutes=sc.nextInt();
+    }
+    public boolean check(){
+        if(hour>=0 && hour<=23 && minutes>=0 &&minutes<=59){
+            return true;
+        }
+        else if(hour==100){
+            System.exit(0);
+            return false;
+        }
+        else{
+            System.out.println("Invalid time input");
+            return false;
+        }
+    }
+    public void display(){
+            if(hour>=1 && hour<12){
+                System.out.printf("%d : %d AM\n",hour,minutes);
+            }
+            else if(hour>0 && hour>12 && hour<=23){
+                System.out.printf("%d : %d PM\n",hour-12,minutes);
+            }
+            else if(hour==0){
+                System.out.printf("%d : %d AM\n",hour+12,minutes);
+            }
+    }
+}
