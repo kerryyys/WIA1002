@@ -38,6 +38,7 @@ public class SimpleNetwork {
     
      //就是ip+subnet换去binary的可以1+1=1，1+0=0，0+0=0，就可以找出network
     private String getNetworkAddress(){
+     //如果没放backslash的话，他会只generate 【】因为他把全部号码都split了
         String[] ipOctets=IP.split("\\.");
         String[] subnetOctets = subnet.split("\\.");
         StringBuilder sb= new StringBuilder();
