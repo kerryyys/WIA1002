@@ -42,7 +42,7 @@ public class SimpleNetwork {
         String[] ipOctets=IP.split("\\.");
         String[] subnetOctets = subnet.split("\\.");
         StringBuilder sb= new StringBuilder();
-        for(int i=0;i<4;i++){       // 32bits / 8 octets = 4 sections
+        for(int i=0;i<4;i++){       // 32bits / 8 octets = 4 sections     // &用来compare bitwise的
             sb.append(Integer.parseInt(ipOctets[i] )& Integer.parseInt(subnetOctets[i])).append('.');
         }
         //Eliminate the last '.'
