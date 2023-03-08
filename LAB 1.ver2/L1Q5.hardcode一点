@@ -1,0 +1,90 @@
+//Create FileIO Interface. The interface consists of two methods that write to the file and read from the file. Create two classes that implement the interface. 
+//The TextFile class read and writes sentences to the text file while the BinaryFile class read and writes sentences to the binary file. 
+//Create a Tester class to test the program, given output below.
+
+public class Main {
+    public static void main(String[] args) {
+        TextFile tt=new TextFile();
+        tt.write();
+        tt.read();
+        BinaryFile bb=new BinaryFile();
+        bb.write();
+        bb.read();
+    }
+}
+
+public interface FileIO {
+    public void write();
+    public void read();
+
+}
+
+public class TextFile implements FileIO{
+    @Override
+    public void write() {
+        System.out.println("Write to text file");
+        System.out.println("Welcome to FSKTM!");
+        System.out.println("Please register your matric number");
+        System.out.println("Please register your UMMail account");
+        try{
+            PrintWriter writer=new PrintWriter(new FileOutputStream("textfile.txt"));
+            writer.println("Welcome to FSKTM!");
+            writer.println("Please register your matric number");
+            writer.println("Please register your UMMail account");
+            writer.close();
+        }catch (FileNotFoundException e){
+            System.out.println("File not found!");
+        }
+    }
+
+    @Override
+    public void read() {
+        System.out.println("Read from text file");
+        try {
+            Scanner sc=new Scanner(new FileInputStream("textfile.txt"));
+            while(sc.hasNextLine()){
+                    System.out.println(sc.nextLine());
+            }
+            sc.close();
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+        }
+    }
+}
+
+public class BinaryFile implements FileIO{
+    @Override
+    public void write() {
+        System.out.println("Write to Binary file.");
+        System.out.println("Welcome to FSKTM!");
+        System.out.println("Please register your matric number");
+        System.out.println("Please register your UMMail account");
+        try {
+            ObjectOutputStream output=new ObjectOutputStream(new FileOutputStream("binary.dat"));
+            output.writeUTF("Welcome to FSKTM!\n");
+            output.writeUTF("Please register your matric number\n");
+            output.writeUTF("Please register your UMMail account!");
+            output.close();
+        } catch (IOException e) {
+            System.out.println("File not found");
+        }
+    }
+    public void read() {
+        System.out.println("Read from Binary file");
+        try{
+            ObjectInputStream input=new ObjectInputStream(new FileInputStream("binary.dat"));
+            try{
+                while(true){
+                    String data= input.readUTF();
+                    System.out.println(data.trim());
+                }
+            }
+            catch(EOFException e){
+                //end of file
+            }
+            input.close();
+        }catch (IOException e){
+            System.out.println("File has problem");
+        }
+    }
+}
