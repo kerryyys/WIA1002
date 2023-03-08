@@ -1,0 +1,106 @@
+public class Tester {
+public static final String TEXT_TYPE = "text file";
+	public static final String BIN_TYPE = "binary file";
+	
+	public static void main(String[] args) {
+		TextFile textFile = new TextFile();
+		BinaryFile binaryFile = new BinaryFile();
+		String content = "Welcome to FSKTM!\n"
+				+ "Please register your matric number.\n"
+				+ "Please register your UMMail account.";
+		String textFilePath = "./src/Lab1/Q5/io_files/content.txt";
+		String binFilePath = "./src/Lab1/Q5/io_files/content.dat";
+		
+		write(textFile, TEXT_TYPE, textFilePath, content, false);
+		read(textFile, TEXT_TYPE, textFilePath);
+		write(binaryFile, BIN_TYPE, binFilePath, content, false);
+		read(binaryFile, BIN_TYPE, binFilePath);
+	}
+	
+	public static void read(FileIO fileReader, String fileType, String filePath) {
+		System.out.println("Read from " + fileType);
+		String content = fileReader.read(filePath);
+		if(content != null)
+			System.out.print(fileReader.read(filePath));
+	}
+	
+	public static void write(FileIO fileReader, String fileType, String filePath, String content, boolean append) {
+		System.out.println("Write to " + fileType);
+		System.out.println(content);
+		fileReader.write(filePath, content, append);
+	}
+    }
+    
+    public interface FileIO {
+	String read(String filePath);
+	public void write(String filePath, String content, boolean append);
+}
+
+public class TextFile implements FileIO {
+	
+	@Override
+	public String read(String filePath) {
+		StringBuilder sb = new StringBuilder();
+		if(filePath.endsWith(".txt")) {
+			try(Scanner sc = new Scanner(new File(filePath))) {
+				while(sc.hasNextLine()) 
+					sb.append(sc.nextLine()).append('\n');
+			} catch(FileNotFoundException ex) {
+				System.out.println("The file does not exist");
+			}
+		} else {
+			System.out.println("Not a text file");
+		}
+		return sb.toString();
+	}
+	
+	@Override
+	public void write(String filePath, String content, boolean append) {
+		if(filePath.endsWith(".txt")) {
+			try(PrintWriter writer = new PrintWriter(new FileWriter(filePath, append))) {
+				writer.println(content);
+			} catch(FileNotFoundException ex) {
+				System.out.println("The file does not exist");
+			} catch(IOException ex) {
+				ex.printStackTrace();
+			}
+		} else {
+			System.out.println("Not a text file");
+		}
+	}
+}
+
+public class BinaryFile implements FileIO {
+	
+	@Override
+	public String read(String filePath) {
+		StringBuilder sb = new StringBuilder();
+		if(filePath.endsWith(".dat")) {
+			try(ObjectInputStream input = new ObjectInputStream(new FileInputStream(filePath))) {
+				while(true) 
+					sb.append(input.readUTF()).append('\n');
+			} catch(EOFException ex) {
+			} catch(FileNotFoundException ex) {
+				System.out.println("The file does not exist");
+			} catch(IOException ex) {}
+		} else {
+			System.out.println("Not a binary file");
+		}
+		return sb.toString();
+	}
+	
+	@Override
+	public void write(String filePath, String content, boolean append) {
+		if(filePath.endsWith(".dat")) {
+			try(ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(filePath, append))) {
+				writer.writeUTF(content);
+			} catch(FileNotFoundException ex) {
+				System.out.println("The file does not exist");
+			} catch(IOException ex) {
+				ex.printStackTrace();
+			}
+		} else {
+			System.out.println("Not a binary file");
+		}
+	}
+}
