@@ -1,0 +1,25 @@
+//In a class called CompareMax, create a generic static method called
+//maximum where the generic type extends the Comparable interface,
+//which receives three parameters. Find the maximum of three values
+//invoked by the main method.
+public class CompareMax{
+
+    public static <T extends Comparable> T maximum(T a, T b, T c){
+        T max=a;
+        if(b.compareTo(max)>0){
+            max=b;
+        }
+        if(c.compareTo(max)>0){
+            max=c;
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        Integer a=1;
+        Integer b=2;
+        Integer c=3;
+
+        Integer max=maximum(a,b,c);
+        System.out.println("Max= "+max);
+    }
+}
