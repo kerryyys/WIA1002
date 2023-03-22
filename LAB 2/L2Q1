@@ -17,3 +17,17 @@ public class MyGeneric<E> {
         return this.e;
     }
 }
+
+
+
+//Create a test program that creates two instances of generic class of
+//type String called strObj and of type Integer called intObj. Set a
+//value for each of these objects. Display these values using the getter method.
+public class Main {
+    public static void main(String[] args) {
+        MyGeneric<String> strObj=new MyGeneric<>("obj");
+        MyGeneric<Integer> intObj=new MyGeneric<>(0);
+        System.out.println("String: "+strObj.getE());
+        System.out.println("Integer: "+intObj.getE());
+    }
+}
