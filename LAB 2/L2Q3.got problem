@@ -1,0 +1,119 @@
+Part (a)
+public class StorePairGeneric<T>{
+    private T first;
+    private T second;
+
+    StorePairGeneric(T first, T second){
+        this.first=first;
+        this.second=second;
+    }
+    public T getFirst(){
+        return first;
+    }
+    public T getSecond(){
+        return second;
+    }
+    public void setPair(T first, T second){
+        this.first=first;
+        this.second=second;
+    }
+    public String toString(){
+        return "first= " + first + " second= "+second;
+    }
+}
+
+Part (b)
+ public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StorePair storePair = (StorePair) o;
+        return first == storePair.first;
+    }
+
+Part (c)//should be full code of Store Pair
+public int compareTo(StorePair o){
+        return Integer.compare(this.first,o.first);
+    }
+    
+Part(d)
+public class StorePairTest {
+    public static void main(String[] args) {
+        StorePair a = new StorePair(6, 4);
+        StorePair b = new StorePair(2, 2);
+        StorePair c = new StorePair(6, 3);
+    }
+}
+
+Part(e)
+public class Main {
+    public static void main(String[] args) {
+        StorePair a = new StorePair(6, 4);
+        StorePair b = new StorePair(2, 2);
+        StorePair c = new StorePair(6, 3);
+
+        // Compare a and b using compareTo()
+        int result = a.compareTo(b);
+        System.out.println("Result of a.compareTo(b): " + result); // prints 1
+
+        // Compare a and c using compareTo()
+        result = a.compareTo(c);
+        System.out.println("Result of a.compareTo(c): " + result); // prints 0
+
+        // Compare b and c using compareTo()
+        result = b.compareTo(c);
+        System.out.println("Result of b.compareTo(c): " + result); // prints -1
+
+        // Compare a and b using equals()
+        boolean equalAB = a.equals(b);
+        System.out.println("Are a and b equal? " + equalAB); // prints false
+
+        // Compare a and c using equals()
+        boolean equalAC = a.equals(c);
+        System.out.println("Are a and c equal? " + equalAC); // prints true
+
+        // Compare a and a using equals()
+        boolean equalAA = a.equals(a);
+        System.out.println("Are a and a equal? " + equalAA); // prints true
+    }
+}
+
+
+full code for part b and c
+import java.util.Objects;
+
+public class StorePair implements Comparable<StorePair> {
+    private int first, second;
+
+    public StorePair(int first, int second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public int getSecond() {
+        return second;
+    }
+
+    public void setPair(int first, int second) {
+        this.first = first;
+        this.second = second;
+    }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StorePair storePair = (StorePair) o;
+        return first == storePair.first;
+    }
+    public int compareTo(StorePair o) {
+        return Integer.compare(this.first, o.first);
+    }
+    public int hashCode() {
+        return Objects.hash(first, second);
+    }
+    public String toString() {
+        return "first = " + first + " second = " + second;
+    }
+}
