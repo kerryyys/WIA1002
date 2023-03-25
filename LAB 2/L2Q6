@@ -1,0 +1,13 @@
+In a class called MinMaxTwoDArray, write two generic methods:
+a. First method returns the minimum element in a two-dimensional
+array. Below is the method signature:
+public static <E extends Comparable<E>> E min(E[][] list)
+b. Second method returns the maximum element in a two-dimensional
+array. Below is the method signature:
+public static <E extends Comparable<E>> E max(E[][] list)
+c. Create a test program that creates one instance of generic class of
+type Integer called numbers with the elements: {4, 5, 6}, {1, 2, 3}.
+Display the minimum and maximum elements using the min and
+max methods.
+
+
