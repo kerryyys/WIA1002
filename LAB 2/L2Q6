@@ -41,3 +41,11 @@ public class MinMaxTwoDArray {
         System.out.println("MAX= "+max(intarray));
     }
 }
+
+
+
+
+ we use list.length in the first loop because we want to iterate over all the rows of 
+ the two-dimensional array, and we need to know the number of rows to do that. 
+ Once we are inside the loop, we use list[i].length to get the number of columns in each row, 
+ which allows us to iterate over all the elements in that row.
