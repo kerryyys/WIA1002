@@ -41,3 +41,14 @@ public class FindMax {
         System.out.println("Max of circle Array: "+max(circleArray).getRadius());
     }
 }
+
+
+
+
+The reason why this is possible is because in Java, integer values can be automatically 
+promoted to double values without any loss of information or precision.
+
+When an integer value is used in a context that expects a double value, the integer value 
+is implicitly converted to a double value. For example, in the constructor of the Circle class,
+the integer value 3 is passed as an argument to the constructor, but it is automatically 
+promoted to a double value of 3.0 to match the type of the radius field.
