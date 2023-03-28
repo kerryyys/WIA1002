@@ -2,32 +2,45 @@
 //Declare a variable called e for the type parameter. Create a no-arg constructor
 //Create a constructor that accepts one generic parameter.
 //Create a setter and getter method for the generic type.
-public class MyGeneric<E> {
-    private E e;
-    MyGeneric(){
 
-    }
-    MyGeneric(E e){
-    this.e=e;
-    }
-    public void setE(E e1){
-        this.e=e1;
-    }
-    public E getE(){
-        return this.e;
-    }
-}
 
 
 
 //Create a test program that creates two instances of generic class of
 //type String called strObj and of type Integer called intObj. Set a
 //value for each of these objects. Display these values using the getter method.
+
+
+//E also can replace T (since E is element(ArrayList))
+
+
+public class MyGeneric <T> {
+    private T e;
+    
+    MyGeneric(){
+        
+    }
+    
+    MyGeneric(T e){
+        this.e=e;
+    }
+    
+    public T getE(){
+        return this.e;
+    }
+    
+    public void setE(T e){
+        this.e=e;
+    }
+}
+
 public class Main {
-    public static void main(String[] args) {
-        MyGeneric<String> strObj=new MyGeneric<>("obj");
-        MyGeneric<Integer> intObj=new MyGeneric<>(0);
+    public static void main(String[]args){
+        MyGeneric<String> strObj=new MyGeneric<>();
+        MyGeneric<Integer> intObj=new MyGeneric<>();
+        strObj.setE("Java");
+        intObj.setE(0);
         System.out.println("String: "+strObj.getE());
         System.out.println("Integer: "+intObj.getE());
-    }
+}
 }
