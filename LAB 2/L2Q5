@@ -42,7 +42,7 @@ public class FindMax {
     }
 }
 
-
+那个compareTo method in circle是可以直接 circleArray.compareTo
 如果是在netbeans就要
 package l2;
 import l2.FindMax.Circle;
