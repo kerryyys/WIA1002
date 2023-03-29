@@ -6,7 +6,7 @@ b. Second method returns the maximum element in a two-dimensional
 array. Below is the method signature:
 public static <E extends Comparable<E>> E max(E[][] list)
 c. Create a test program that creates one instance of generic class of
-type Integer called numbers with the elements: {4, 5, 6}, {1, 2, 3}.
+type Integer called numbers with the elements: {4, 5, 6}, {1, 2, 3}.   //直接create 2d而不是object是因为太难了，没instruction to do 其他东西
 Display the minimum and maximum elements using the min and max methods.
 
 
@@ -49,3 +49,8 @@ public class MinMaxTwoDArray {
  the two-dimensional array, and we need to know the number of rows to do that. 
  Once we are inside the loop, we use list[i].length to get the number of columns in each row, 
  which allows us to iterate over all the elements in that row.
+
+We don't need to implement the Comparable interface in this case because we are comparing the elements of a two-dimensional array 
+rather than comparing instances of a class. 
+The Comparable interface is used to define a natural ordering of a class and its instances. 
+In this case, we are comparing elements
