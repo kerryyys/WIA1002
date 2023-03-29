@@ -1,0 +1,16 @@
+为什么要用Comparable interface？
+
+The Comparable interface is used to define a natural ordering of objects. 
+It provides a way for objects to be compared to each other and sorted in a specific order.
+
+When a class implements the Comparable interface, it must provide an implementation for the compareTo() method, 
+which takes another object of the same type as an argument and returns an integer value. 
+The compareTo() method compares the object with the argument object and returns a negative integer, zero, or a positive integer, 
+depending on whether the object is less than, equal to, or greater than the argument object, respectively.
+
+Using Comparable allows for a more flexible and modular way of comparing objects. 
+For example, when sorting a list of objects, 
+you can simply call the sort() method of the Collections class and it will use the compareTo() method of the objects to sort them in ascending order.
+
+Using the normal comparison operators like a > b only works for primitive data types, not for objects. 
+Therefore, to compare objects, we need to use a method like compareTo() that is specifically designed for that purpose.
