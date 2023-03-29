@@ -1,0 +1,36 @@
+public class StorePairGeneric <T extends Comparable<T>>implements Comparable<StorePairGeneric<T>>{
+    private T first;
+    private T second;
+
+    StorePairGeneric(T first, T second){
+        this.first=first;
+        this.second=second;
+    }
+    public T getFirst(){
+        return first;
+    }
+    public T getSecond(){
+        return second;
+    }
+    public void setPair(T first, T second){
+        this.first=first;
+        this.second=second;
+    }
+    public String toString(){
+        return "first= " + first + " second= "+second;
+    }
+    public boolean equals(Object o) {
+        if (this == o) {
+        return true;
+        }
+        
+        if (o == null || getClass() != o.getClass()) {                        //可以if (!(o instanceof StorePairGeneric)) return false;
+        return false;
+        }
+        
+        StorePairGeneric storePair = (StorePairGeneric) o;                //为了cast o成为storepair ，Without this cast, the compiler wouldn't know that obj is an instance of MyClass and wouldn't allow access to its fields.
+        return this.first == storePair.first;
+    }
+    public int compareTo(StorePairGeneric<T> other) {
+        return this.first.compareTo(other.first);
+    }
