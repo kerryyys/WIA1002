@@ -49,7 +49,7 @@ because the instanceof keyword already checks if the object is an instance of th
 
 
 Part (c)
-public class StorePair implements Comparable<StorePair> {
+public class StorePair implements Comparable<StorePair> {             //<StorePair> is parameter, so when use compareTo, will accept it as parameter
     private int first, second;
 
     public StorePair(int first, int second) {
@@ -89,7 +89,7 @@ Part(d)
 public class StorePairTest {
     public static void main(String[] args) {
         StorePairGeneric<Integer> a = new StorePairGeneric<>(6, 4);
-		StorePairGeneric<Integer> b = new StorePairGeneric<>(2, 2);
+	StorePairGeneric<Integer> b = new StorePairGeneric<>(2, 2);
         StorePairGeneric<Integer> c = new StorePairGeneric<>(6, 3);
     }
 }
@@ -97,7 +97,7 @@ public class StorePairTest {
 Part(e)
 public class Main {
     public static void main(String[] args) {
-       StorePairGeneric<Integer> a = new StorePairGeneric<>(6, 4);
+        StorePairGeneric<Integer> a = new StorePairGeneric<>(6, 4);
 	StorePairGeneric<Integer> b = new StorePairGeneric<>(2, 2);
         StorePairGeneric<Integer> c = new StorePairGeneric<>(6, 3);
         
