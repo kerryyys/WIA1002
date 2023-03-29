@@ -1,0 +1,37 @@
+public class StorePair implements Comparable<StorePair> {
+private int first, second;
+public StorePair(int first, int second) {
+this.first = first;
+this.second = second;
+}
+public int getFirst() {
+return first;
+}
+public int getSecond() {
+return second;
+}
+public void setPair(int first, int second) {
+this.first = first;
+this.second = second;
+}
+public String toString() {
+return "first = " + first + " second = " + second;
+}
+
+public boolean equals(Object o) {
+        if (this == o) {
+        return true;
+        }
+        
+        if (o == null || getClass() != o.getClass()) {                        //可以if (!(o instanceof StorePairGeneric)) return false;
+        return false;
+        }
+        
+        StorePair storePair = (StorePair) o;                //为了cast o成为storepair ，Without this cast, the compiler wouldn't know that obj is an instance of MyClass and wouldn't allow access to its fields.
+        return this.first == storePair.first;
+    }
+ @Override
+    public int compareTo(StorePair other) {
+        return Integer.compare(this.first, other.first);
+    }
+}
