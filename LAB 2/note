@@ -1,3 +1,16 @@
+GENERIC CLASS FORMAT
+public class MyClass<T> {
+    // class body
+}
+也有看情况的
+public class StorePairGeneric <T extends Comparable<T>>implements Comparable<StorePairGeneric<T>>
+
+GENERIC METHOD FORMAT
+public <T> void myMethod(T param) {
+    // method body
+}
+
+
 为什么要用Comparable interface？
 
 The Comparable interface is used to define a natural ordering of objects. 
