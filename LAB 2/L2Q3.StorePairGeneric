@@ -1,3 +1,11 @@
+Store pair generic
+(T extends comparable t)
+Implement
+Comparable Storepair generic t
+
+store pair generic要跟自己比较所以要implement
+t extends comparable是因为你要比较t，所以t要extend保证可以compare
+---------------------------------------------------------------------
 public class StorePairGeneric <T extends Comparable<T>>implements Comparable<StorePairGeneric<T>>{
     private T first;
     private T second;
