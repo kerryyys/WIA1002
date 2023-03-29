@@ -43,7 +43,13 @@ public class FindMax {
 }
 
 
-
+如果是在netbeans就要
+package l2;
+import l2.FindMax.Circle;
+import static l2.FindMax.max;
+public class L2{
+main xxxxx
+}
 
 The reason why this is possible is because in Java, integer values can be automatically 
 promoted to double values without any loss of information or precision.
