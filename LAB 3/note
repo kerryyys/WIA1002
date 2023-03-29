@@ -1,0 +1,10 @@
+UML diagram的目的？
+The purpose of using UML (Unified Modeling Language) diagram is to provide a visual representation of the system being developed. 
+It is a standardized graphical language used in software engineering to model, design, and document software systems. 
+UML diagrams allow software developers to visualize the architecture, design, and behavior of a software system.
+
+UML diagrams are used to communicate with stakeholders, such as developers, testers, and project managers. 
+They provide a clear understanding of the system's components, their relationships, and their behaviors. 
+This helps to identify potential design issues and make design decisions more efficiently. 
+UML diagrams also help in the documentation process of the software system, making it easier for new developers to understand and maintain the system. 
+Overall, UML diagrams are an essential tool in software engineering to model and design complex software systems.
