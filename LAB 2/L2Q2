@@ -15,11 +15,23 @@ public class CompareMax{
         return max;
     }
     public static void main(String[] args) {
-        Integer a=1;
-        Integer b=2;
-        Integer c=3;
-
-        Integer max=maximum(a,b,c);
-        System.out.println("Max= "+max);
+        Integer intMax = maximum(1, 2, 3);
+        Double doubleMax = maximum(1.2, 2.5, 3.8);
+        String stringMax = maximum("horse","donkey","monkey");
+        System.out.println("Integer maximum: " + intMax);
+        System.out.println("Double maximum: " + doubleMax);
+        System.out.println("String maximum: " + stringMax);
     }
 }
+
+
+
+
+如果是在netbeans12.5 就要在main class call， format like this
+       Integer intmax=CompareMax.maximum(1,2,3);
+       Double doublemax=CompareMax.maximum(1.1,4.4,3.3);
+       String strmax=CompareMax.maximum("horse","donkey","monkey");
+       
+       System.out.println("Max of Integer: "+intmax);
+       System.out.println("Max of Double: "+doublemax);
+       System.out.println("Max of String: "+strmax);
