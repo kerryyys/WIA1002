@@ -24,63 +24,31 @@ public class StorePairGeneric<T>{
 
 Part (b)
  public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StorePair storePair = (StorePair) o;
-        return first == storePair.first;
+        if (this == o) {
+        return true;
+        }
+        
+        if (o == null || getClass() != o.getClass()) {                        //可以if (!(o instanceof StorePairGeneric)) return false;
+        return false;
+        }
+        
+        StorePair storePair = (StorePair) o;                //为了cast o成为storepair ，Without this cast, the compiler wouldn't know that obj is an instance of MyClass and wouldn't allow access to its fields.
+        return this.first == storePair.first;
     }
 
-Part (c)//should be full code of Store Pair
-public int compareTo(StorePair o){
-        return Integer.compare(this.first,o.first);
-    }
-    
-Part(d)
-public class StorePairTest {
-    public static void main(String[] args) {
-        StorePair a = new StorePair(6, 4);
-        StorePair b = new StorePair(2, 2);
-        StorePair c = new StorePair(6, 3);
-    }
-}
+getClass为了确保是一样的class才可以compare
+check whether the obj parameter is an instance of the StorePair class and then assign it to a variable storePair.
 
-Part(e)
-public class Main {
-    public static void main(String[] args) {
-        StorePair a = new StorePair(6, 4);
-        StorePair b = new StorePair(2, 2);
-        StorePair c = new StorePair(6, 3);
+StorePair<?> storePair = (StorePair<?>) o; 是当class是generic的时候用的，如果我们现在用的是普通storepair，只要用 SP sp=（SP） o；
+We need to cast the anotherObject parameter to StorePairGeneric<T> because in the equals method, we need to access the first field of the StorePairGeneric object. 
+However, the Object class, which is the superclass of all classes in Java, does not have the first field. 
+Therefore, we need to cast anotherObject to StorePairGeneric<T> so that we can access the first field of the object and compare it with the first field of this object.
 
-        // Compare a and b using compareTo()
-        int result = a.compareTo(b);
-        System.out.println("Result of a.compareTo(b): " + result); // prints 1
-
-        // Compare a and c using compareTo()
-        result = a.compareTo(c);
-        System.out.println("Result of a.compareTo(c): " + result); // prints 0
-
-        // Compare b and c using compareTo()
-        result = b.compareTo(c);
-        System.out.println("Result of b.compareTo(c): " + result); // prints -1
-
-        // Compare a and b using equals()
-        boolean equalAB = a.equals(b);
-        System.out.println("Are a and b equal? " + equalAB); // prints false
-
-        // Compare a and c using equals()
-        boolean equalAC = a.equals(c);
-        System.out.println("Are a and c equal? " + equalAC); // prints true
-
-        // Compare a and a using equals()
-        boolean equalAA = a.equals(a);
-        System.out.println("Are a and a equal? " + equalAA); // prints true
-    }
-}
+Checking the class of the object using the getClass() method is not necessary in this case 
+because the instanceof keyword already checks if the object is an instance of the specified class or any of its subclasses.
 
 
-full code for part b and c
-import java.util.Objects;
-
+Part (c)
 public class StorePair implements Comparable<StorePair> {
     private int first, second;
 
@@ -101,19 +69,43 @@ public class StorePair implements Comparable<StorePair> {
         this.first = first;
         this.second = second;
     }
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StorePair storePair = (StorePair) o;
-        return first == storePair.first;
-    }
-    public int compareTo(StorePair o) {
-        return Integer.compare(this.first, o.first);
-    }
-    public int hashCode() {
-        return Objects.hash(first, second);
-    }
+
     public String toString() {
         return "first = " + first + " second = " + second;
+    }
+
+    @Override
+    public int compareTo(StorePair other) {
+        return this.first.compareTo(other.first);
+    }
+}
+    
+    //Integer.compare method, which returns -1 if the first object is less than the second object, 
+    0 if the two objects are equal, and 1 if the first object is greater than the second object.
+    
+    
+    
+Part(d)
+public class StorePairTest {
+    public static void main(String[] args) {
+        StorePairGeneric<Integer> a = new StorePairGeneric<>(6, 4);
+		StorePairGeneric<Integer> b = new StorePairGeneric<>(2, 2);
+        StorePairGeneric<Integer> c = new StorePairGeneric<>(6, 3);
+    }
+}
+
+Part(e)
+public class Main {
+    public static void main(String[] args) {
+       StorePairGeneric<Integer> a = new StorePairGeneric<>(6, 4);
+	StorePairGeneric<Integer> b = new StorePairGeneric<>(2, 2);
+        StorePairGeneric<Integer> c = new StorePairGeneric<>(6, 3);
+        
+        System.out.println(a.compareTo(b));  //print 1
+        System.out.println(a.compareTo(c));  //print 0
+        System.out.println(b.compareTo(c));  //print -1
+        System.out.println(a.equals(b));     //print false
+        System.out.println(a.equals(c));    //print true
+        System.out.println(b.equals(c));    //print false
     }
 }
