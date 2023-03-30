@@ -27,3 +27,36 @@ you can simply call the sort() method of the Collections class and it will use t
 
 Using the normal comparison operators like a > b only works for primitive data types, not for objects. 
 Therefore, to compare objects, we need to use a method like compareTo() that is specifically designed for that purpose.
+
+
+what is the difference between <T extends Comparable<T>> and <T extends Comparable>?
+
+
+如果用without <T>的，比如
+public class MyClass<T extends Comparable> {
+    private T value;
+
+    public int compareTo(MyClass<T> other) {
+        return value.compareTo(other.value);
+    }
+}
+The second syntax, <T extends Comparable>, means that the type parameter "T" must implement the "Comparable" interface with any type. 
+This is called a wildcard type parameter. 
+It allows objects of different types to be compared, but can result in runtime errors if objects of incompatible types are compared.
+
+In this example, the type parameter "T" is bounded to the "Comparable" interface, but can be replaced with any type that implements the "Comparable" interface. 
+The "compareTo" method compares the value of the current object with the value of another object of any type that implements "Comparable", 
+but could potentially result in a runtime error if objects of incompatible types are compared.
+
+如果用with <T>的，
+The first syntax, <T extends Comparable<T>>, means that the type parameter "T" must implement the "Comparable" interface with the same type "T". 
+This is called a self-bounded type parameter. It ensures that the objects of type "T" can be compared to each other, 
+and provides type safety by ensuring that only objects of the same type can be compared.
+
+the type parameter "T" is self-bounded, and can only be replaced with a type that implements the "Comparable" interface with the same type "T". 
+The "compareTo" method compares the value of the current object with the value of another object of the same type.
+
+
+In summary, the difference between <T extends Comparable<T>> and <T extends Comparable> is in the bounds of the type parameter. 
+The first syntax provides type safety by ensuring that objects of the same type can be compared, 
+while the second syntax allows objects of different types to be compared, but can result in runtime errors.
