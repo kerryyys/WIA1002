@@ -32,8 +32,8 @@ Part (b)
         return false;
         }
         
-        StorePair storePair = (StorePair) o;                //为了cast o成为storepair ，Without this cast, the compiler wouldn't know that obj is an instance of MyClass and wouldn't allow access to its fields.
-        return this.first == storePair.first;
+        StorePairGeneric<T> storePair = (StorePairGeneric<T>) o;                //为了cast o成为storepair ，Without this cast, the compiler wouldn't know that obj is an instance of MyClass and wouldn't allow access to its fields.
+        return this.first.equals(storePair.first);
     }
 
 getClass为了确保是一样的class才可以compare
@@ -49,33 +49,9 @@ because the instanceof keyword already checks if the object is an instance of th
 
 
 Part (c)
-public class StorePair implements Comparable<StorePair> {             //<StorePair> is parameter, so when use compareTo, will accept it as parameter
-    private int first, second;
-
-    public StorePair(int first, int second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    public int getFirst() {
-        return first;
-    }
-
-    public int getSecond() {
-        return second;
-    }
-
-    public void setPair(int first, int second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    public String toString() {
-        return "first = " + first + " second = " + second;
-    }
 
     @Override
-    public int compareTo(StorePair other) {
+    public int compareTo(StorePairGeneric<T> other) {
         return this.first.compareTo(other.first);
     }
 }
