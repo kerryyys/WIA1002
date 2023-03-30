@@ -8,3 +8,17 @@ They provide a clear understanding of the system's components, their relationshi
 This helps to identify potential design issues and make design decisions more efficiently. 
 UML diagrams also help in the documentation process of the software system, making it easier for new developers to understand and maintain the system. 
 Overall, UML diagrams are an essential tool in software engineering to model and design complex software systems.
+
+
+public enum Dispenser{
+Candy(x,x),
+Gum(y,y);
+Dispenser(String x, double y){
+this,x=x;
+this.y=y;
+}
+}
+enum是用来define a set of named values that represent a finite set of choices。
+可方便我们list同一种类的东西
+format就是那样
+里面的value要跟着constructor的argument；
