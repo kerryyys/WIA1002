@@ -23,13 +23,16 @@ enum是用来define a set of named values that represent a finite set of choices
 format就是那样
 里面的value要跟着constructor的argument；
 
-T3Q2
+T3Q2 - 全部关于Javadoc的使用方法 - 用的意义就是为了让程序员更明白这个是为啥用的，因为comment会很冗长，所以这个更直接更简短 更凸显出目的
 @param is a tag used in Javadoc-style comments in Java to document a method's parameters. 
 It is used to describe the parameter's purpose and any constraints or requirements on the values that can be passed in. 
 The @param tag is followed by the name of the parameter and its description. 
 For example, the Javadoc comment for a method with a parameter named name might include the following @param tag:
 The @param tag should be placed directly above the parameter it is documenting, inside the Javadoc comment for the method or constructor.
 一定要放在method上面不可以method里面，@param后面跟着parameter的名字
+
+The @code tag is a Javadoc tag that is used to indicate that a specific word or phrase should be presented in code font. 
+This can be helpful for indicating code fragments, method names, or other programming constructs within documentation.
 
 例子：
 /**
@@ -40,3 +43,6 @@ The @param tag should be placed directly above the parameter it is documenting, 
  * @return the sum of a and b
  */
 public int sum(int a, int b);
+
+
+The /** format is called a documentation comment in Java and is used to generate documentation automatically using tools like Javadoc. 
