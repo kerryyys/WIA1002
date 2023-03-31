@@ -46,3 +46,5 @@ public int sum(int a, int b);
 
 
 The /** format is called a documentation comment in Java and is used to generate documentation automatically using tools like Javadoc. 
+The /** format for a comment indicates that it is a documentation comment and not just a regular code comment. 
+It's important to note that this format is specific to documentation comments and is not required for regular code comments.
