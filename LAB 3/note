@@ -30,3 +30,13 @@ The @param tag is followed by the name of the parameter and its description.
 For example, the Javadoc comment for a method with a parameter named name might include the following @param tag:
 The @param tag should be placed directly above the parameter it is documenting, inside the Javadoc comment for the method or constructor.
 一定要放在method上面不可以method里面，@param后面跟着parameter的名字
+
+例子：
+/**
+ * Returns the sum of two integers.
+ * 
+ * @param a the first integer
+ * @param b the second integer
+ * @return the sum of a and b
+ */
+public int sum(int a, int b);
