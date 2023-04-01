@@ -1,0 +1,3 @@
+LinkedList is useful when you need to frequently add or remove elements from the beginning or end of the list, 
+since it does not require shifting elements like an ArrayList. 
+However, it is slower than an ArrayList when accessing elements in the middle of the list.
