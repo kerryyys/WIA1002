@@ -1,3 +1,6 @@
 LinkedList is useful when you need to frequently add or remove elements from the beginning or end of the list, 
 since it does not require shifting elements like an ArrayList. 
 However, it is slower than an ArrayList when accessing elements in the middle of the list.
+
+
+In the context of collections in Java, "retain" refers to the process of removing all elements from a collection that are not contained in another collection.
