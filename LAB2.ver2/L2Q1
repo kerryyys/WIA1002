@@ -28,7 +28,7 @@ public class NonDuplicate <T extends List<Integer>> {
         Random rand = new Random();
         Set<Integer> set = new HashSet<>();
         while(set.size() < size)
-            set.add(rand.nextInt(upperbound - lowerbound +2)+lowerbound);
+            set.add(rand.nextInt(upperbound - lowerbound +1)+lowerbound);
         list.addAll(set);
         Collections.sort(list);
         return list;
