@@ -5,6 +5,9 @@ public class MyClass<T> {
 也有看情况的
 public class StorePairGeneric <T extends Comparable<T>>implements Comparable<StorePairGeneric<T>>
 
+public class TextFileLog<T> implements SimpleLog<T>
+
+
 GENERIC METHOD FORMAT
 public <T> void myMethod(T param) {
     // method body
