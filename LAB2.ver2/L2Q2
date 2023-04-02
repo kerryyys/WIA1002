@@ -1,0 +1,122 @@
+//Create a TextFile based implementation named TextFileLog that implements the SimpleLog interface. 
+//The interface contains the following specifications:
+// A method to insert item to the log
+// A method to check whether the log is full
+// A method to get the size of the log
+// A method to check whether the item exists in the log
+// A method to delete the log
+// A method to display all items in the log
+//Create a Tester class to test the program, given output below.
+
+
+public interface SimpleLog<T> {
+    public boolean insert(T item);
+    public boolean isFull();
+    public int size();
+    public boolean contain(T item);
+    public boolean delete(T item);
+    public void display();
+    public int indexOf(T item);
+    public void clear();
+}
+
+public class TextFileLog<T> implements SimpleLog<T> {
+    private static final int MAX = 5;
+    private int size;
+    private int maxSize;
+    private T[] log;
+
+    TextFileLog() {
+        this(MAX);
+    }
+
+    @SuppressWarnings("unchecked")
+    TextFileLog(int maxSize) {
+        this.maxSize = maxSize;
+        this.log = (T[]) new Object[maxSize];
+    }
+
+    public boolean insert(T item) {
+        if (!isFull()) {
+            log[size++] = item;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isFull() {
+        return size == maxSize;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean contain(T item) {
+        return indexOf(item) >= 0;
+    }
+
+    public boolean delete(T item) {
+        int i = indexOf(item);
+        if (i >= 0) {
+            for (; i < size - 1; i++)
+                log[i] = log[i + 1];
+            log[--size] = null;
+            return true;
+        }
+        return false;
+    }
+    public void display(){
+        for(int i=0;i<size;i++){
+            System.out.println(log[i]);
+        }
+    }
+    public void clear(){
+        for(int i=0;i<size;i++){
+            log[i]=null;
+            size=0;
+        }
+    }
+    public int indexOf(T item){
+        if(item == null){
+            for(int i=0;i<size;i++){
+                if(log[i] == item)
+                    return i;
+            }
+        }
+        else{
+            for(int i=0;i<size;i++){
+                if(log[i].equals(item))
+                    return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Create a text file log with maximum record equal to 5");
+        TextFileLog<String> textFileLog = new TextFileLog<>(5);
+
+        String[] names = {"James", "Ahmad", "Siti", "Ramesh", "John"};
+        for(String name : names)
+            textFileLog.insert(name);
+
+        textFileLog.display();
+        System.out.println();
+
+        System.out.println("Adding another record");
+        textFileLog.insert("Ng");
+        System.out.println("The log is " + (textFileLog.isFull() ? "full" : "not full"));
+
+        String name = "Siti";
+        System.out.printf("Searching for %s in the file\n", name);
+        System.out.printf("Text File Log %s %s\n", textFileLog.contain(name) ? "contains" : "does not contain", name);
+
+        System.out.println("Clear the text file log");
+        textFileLog.clear();
+        System.out.println("Text File Log Size " + textFileLog.size());
+    }
+}
