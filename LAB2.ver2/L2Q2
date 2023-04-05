@@ -61,7 +61,7 @@ public class TextFileLog<T> implements SimpleLog<T> {
         if (i >= 0) {
             for (; i < size - 1; i++)
                 log[i] = log[i + 1];
-            log[--size] = null;
+            log[--size] = null; //run after for loop finish iterate
             return true;
         }
         return false;
