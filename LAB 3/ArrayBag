@@ -44,7 +44,7 @@ public class ArrayBag<T> implements BagInterface<T>{
             }
             if(index== -1)return false;
         }
-        bag[index]=bag[--numberOfEntries];
+        bag[index]=bag[--numberOfEntries]; //replace original element with last element
         bag[numberOfEntries]=null;
         return true;
     }
