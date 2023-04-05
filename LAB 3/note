@@ -48,3 +48,11 @@ public int sum(int a, int b);
 The /** format is called a documentation comment in Java and is used to generate documentation automatically using tools like Javadoc. 
 The /** format for a comment indicates that it is a documentation comment and not just a regular code comment. 
 It's important to note that this format is specific to documentation comments and is not required for regular code comments.
+
+
+
+LAB 3
+System.arraycopy is a method in Java that allows you to copy a range of elements from one array to another array. 
+This method is commonly used when you need to copy an array to another array with a different size or 
+when you need to copy a subset of elements from one array to another.
+System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
