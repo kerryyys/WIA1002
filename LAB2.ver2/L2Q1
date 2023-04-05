@@ -5,7 +5,7 @@ The class must be generic to support array and linked-list implementation.
 import java.util.Random;
 import java.util.List;
 import java.util.Collections;
-import java.util.Set;
+import java.util.Set;  \\not allowed duplicated item
 import java.util.HashSet;
 public class NonDuplicate <T extends List<Integer>> {
     private static final int LOWER = 0;
