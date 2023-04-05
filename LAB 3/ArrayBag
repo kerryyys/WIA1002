@@ -89,7 +89,7 @@ public class ArrayBag<T> implements BagInterface<T>{
             for (int j = 0; j < bag2Array.length; j++) {
                 if (item.equals(bag2Array[j])) {
                     intersection.add(item);
-                    bag2Array[j] = null;
+                    bag2Array[j] = null; //avoid duplicate item in intersectio
                     break;
                 }
             }
