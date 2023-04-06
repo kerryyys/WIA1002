@@ -4,8 +4,12 @@ public class MyClass<T> {
 }
 也有看情况的
 public class StorePairGeneric <T extends Comparable<T>>implements Comparable<StorePairGeneric<T>>
+((((the StorePairGeneric class implements the Comparable interface with the same type parameter T. 
+This means that instances of StorePairGeneric can be compared to each other using the compareTo method.)))))))))
+
 
 public class TextFileLog<T> implements SimpleLog<T>
+意思就是TFL&SL 可以define as anyType , ex: TFL<String> implement SL<String>
 
 
 GENERIC METHOD FORMAT
