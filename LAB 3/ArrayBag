@@ -97,6 +97,9 @@ public class ArrayBag<T> implements BagInterface<T>{
         return intersection;
     }
 
+
+//other method for difference is like use result from intersection method to be minus then just used search in difference so dont need loop so many times
+ 
     public BagInterface<T> difference(BagInterface<? extends T> bag2) {
         ArrayBag<T> difference = new ArrayBag<>();
         for (int i = 0; i < numberOfEntries; i++)
