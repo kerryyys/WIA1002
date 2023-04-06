@@ -24,12 +24,12 @@ public class ArrayBagDemo {
         displayBag(bag4);
         System.out.println();
 
-        System.out.println("bag5, test the method difference of bag1 and bag2:");
+        System.out.println("bag5, test the method difference of bag1 and bag2:");  //bag2.difference(bag1) is different with bag1.difference(bag2)
         ArrayBag<String> bag5 = (ArrayBag<String>) bag1.difference(bag2);
         displayBag(bag5);
     }
 
-    private static void testAdd(BagInterface<String> aBag, String[] content) {
+    private static void testAdd(BagInterface<String> aBag, String[] content) {  
         System.out.print("Adding ");
         for (String s : content) {
             aBag.add(s);
