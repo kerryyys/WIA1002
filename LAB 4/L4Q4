@@ -1,0 +1,22 @@
+Expand the MyLinkedList by implementing the following methods:
+public boolean contains(E e)
+Return true if list contains the element e
+public E get(int index)
+Return element at the specified index
+public E getFirst()
+Return the value of the first item
+public E getLast()
+Return the value of the last item
+public int indexOf(E e)
+Return the index of the head matching element in this list. Return -1 of no match
+public int lastIndexOf(E e)
+Return the index of the last matching element in this list. Return -1 of no match
+public E set(int index,E e)
+Replace the element at the specified position in this list with the specified element
+public void clear()
+Clear the list
+public void print()
+Print all the elements in the list
+public void reverse()
+Print all elements in reverse order
+
