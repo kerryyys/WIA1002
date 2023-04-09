@@ -35,6 +35,15 @@ you can simply call the sort() method of the Collections class and it will use t
 Using the normal comparison operators like a > b only works for primitive data types, not for objects. 
 Therefore, to compare objects, we need to use a method like compareTo() that is specifically designed for that purpose.
 
+这两个的用意
+<? extends Number> is a wildcard that specifies an upper bound for the type parameter. 
+<? super Number> is a wildcard that specifies a lower bound for the type parameter. 
+
+In general, you should use <? extends T> when you need to read values from a collection, 
+and <? super T> when you need to write values to a collection. 
+If you need to do both, you may need to use a bounded wildcard with both an upper and a lower bound.
+
+
 
 what is the difference between <T extends Comparable<T>> and <T extends Comparable>?
 
