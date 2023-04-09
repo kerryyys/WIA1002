@@ -1,0 +1,12 @@
+Write a test program called TestLinkedList that creates a list from
+MyLinkedList class. Using the methods in (3) and (4), do the following:
+a. Append the following : a, b, c, d, e
+b. Print all the elements in the list.
+c. Reverse all the elements in the list.
+d. Retrieve the number of elements in the list.
+e. Retrieve the first and last value.
+f. Delete the third value.
+g. Retrieve the index location for the second and third value.
+h. Checks if the list has the value ‘c’.
+i. Replace the items individually with the following: j,a,v,a.
+
