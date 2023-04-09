@@ -1,0 +1,7 @@
+Implement the following methods from tutorial in this class:
+a. public void addFirst(E e)
+b. public void addLast(E e)
+c. public void add(int index, E e)
+d. public E removeFirst()
+e. public E removeLast()
+f. public E remove(int index)
