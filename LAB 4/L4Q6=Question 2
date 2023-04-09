@@ -1,0 +1,5 @@
+A method called getMiddleValue() returns the value of the middle element of alinked list. 
+The method signature is given as follows :
+public E getMiddleValue()
+Write the codes for the getMiddleValue().
+
