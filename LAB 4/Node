@@ -1,0 +1,11 @@
+//Write the generic Node class consisting of two components of a node (i.e.:
+//element, next), with a default construct and a constructor that accepts an
+//item assigned to the initially declared element variable.
+public class Node<E> {
+    E element;
+    Node<E> next;
+    Node(){}
+    Node(E element){
+        this.element=element;
+    }
+}
