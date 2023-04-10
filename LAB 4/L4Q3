@@ -6,84 +6,94 @@ d. public E removeFirst()
 e. public E removeLast()
 f. public E remove(int index)
 
-import java.util.NoSuchElementException;
 
-public class LinkedList<E> {
-     Node<E> head;
-     Node<E> tail;
+public class MyLinkedList<E> {
+     private Node<E> head;
+     private Node<E> tail;
     int size;
+    public MyLinkedList(){
+        head=null;
+        tail=null;
+    }
     public void addFirst(E e){
-       Node<E> newNode=new Node<E>(e,head);
-       newNode.next=head;
+       Node<E> newHead=new Node<E>(e);
+        newHead.next=head;
         if(tail == null)
             tail = head;
-        head = newNode;
+        head = newHead;
         size++;
     }
     public void addLast(E e){
-        Node<E> newNode=new Node<E>(e,null);
+        Node<E> newTail=new Node<E>(e);
         if(tail == null){
-                head=tail=newNode;
+            head=tail=newTail;
         }
         else
-            tail.next=newNode;
-        tail=tail.next; //tail=newNode;
+            tail.next=newTail;
+        tail=newTail;
         size++;
     }
     public void add(int index, E e){
-        checkPositionIndex(index);
-        if(index==0){
+        if(index<=0){
             addFirst(e);
+            return;
         }
-        else if(index==size){
+        try{
+            Node<E>beforeToAdd=head;
+            for(int i=1; i<index;i++)
+                beforeToAdd = beforeToAdd.next;
+
+            Node<E> toAdd = new Node<>(e);
+            toAdd.next = beforeToAdd.next;
+            beforeToAdd.next=toAdd;
+            if(toAdd.next == null)
+                tail = toAdd;
+        }catch (NullPointerException ex){
             addLast(e);
-        }
-        else{
-            Node<E>prev = node(index-1); //=prev.next
-            Node<E>newNode = new Node<E>(e,prev.next);
-            prev.next = newNode;
-            size++;
         }
     }
     public E removeFirst(){
-        if(size==0)
-            return null;
-        if(head==null){
-            throw new NoSuchElementException();
-        }
-        E elem=head.element;
-        head=head.next;
-        if(head==null)
-            tail=null;
-        size--;
-        return elem;
+        if (head == null) return null;
+        E item = head.element;
+        head = head.next;
+        if (head == null) tail = null;
+        return item;
     }
     public E removeLast(){
-        E elem=tail.element;
-        if(head.next==null){
-            head=tail=null;
+        if (tail == null) return null;
+        E item = tail.element;
+        if (head == tail) {
+            head = tail = null;
+            return item;
         }
-        else{
-            Node<E>prev=node(size-2);
-            prev.next=null;
-            tail = prev;
-            size--;
-        }
-        return elem;
+        Node<E> beforeLast = head;
+        while (beforeLast.next.next != null)
+            beforeLast = beforeLast.next;
+        beforeLast.next = null;
+        tail = beforeLast;
+
+        return item;
     }
 
     public E remove(int index){
-        checkElementIndex(index);
-        if(index==0){
-            return removeFirst();
+        if (index < 0) return null;
+        if (index == 0) return removeFirst();
+
+        try {
+            Node<E> beforeToRemove = head;
+            for (int i = 1; i < index; i++)
+                beforeToRemove = beforeToRemove.next;
+            E item = beforeToRemove.next.element;
+            beforeToRemove.next = beforeToRemove.next.next;
+            if (beforeToRemove.next == null) tail = beforeToRemove;
+
+            return item;
+
+        } catch (NullPointerException ex) {
+            return null;
         }
-        else{
-            Node<E>prev = node(index-1);
-            E elem = prev.next.element;
-            prev.next=prev.next.next;
-            if(prev.next==null)
-                tail=prev;
-            size--;
-            return elem;
-        }
+    }
+
+    public void add(E e) {
+        addLast(e);
     }
