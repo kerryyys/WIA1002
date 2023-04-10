@@ -1,0 +1,30 @@
+package lab.test.pkg1.pkgtry;
+
+public class Prescription<T extends Pet> {
+    private T pet;
+    private String medication;
+    private int dosage;
+    Prescription(T pet,String medication,int dosage){
+        this.dosage=dosage;
+        this.medication=medication;
+        this.pet=pet;
+    }
+    public T getPet(){
+        return this.pet;
+    }
+    public void  setPet(T pet){
+        this.pet=pet;
+    }
+    public String getMedication(){
+        return this.medication;
+    }
+    public void setMedication(String medication){
+        this.medication=medication;
+    }
+    public int getDosage(){
+        return this.dosage;
+    }
+    public void setDosage(int dosage){
+        this.dosage=dosage;
+    }
+}
