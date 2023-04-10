@@ -5,3 +5,85 @@ c. public void add(int index, E e)
 d. public E removeFirst()
 e. public E removeLast()
 f. public E remove(int index)
+
+import java.util.NoSuchElementException;
+
+public class LinkedList<E> {
+     Node<E> head;
+     Node<E> tail;
+    int size;
+    public void addFirst(E e){
+       Node<E> newNode=new Node<E>(e,head);
+       newNode.next=head;
+        if(tail == null)
+            tail = head;
+        head = newNode;
+        size++;
+    }
+    public void addLast(E e){
+        Node<E> newNode=new Node<E>(e,null);
+        if(tail == null){
+                head=tail=newNode;
+        }
+        else
+            tail.next=newNode;
+        tail=tail.next; //tail=newNode;
+        size++;
+    }
+    public void add(int index, E e){
+        checkPositionIndex(index);
+        if(index==0){
+            addFirst(e);
+        }
+        else if(index==size){
+            addLast(e);
+        }
+        else{
+            Node<E>prev = node(index-1); //=prev.next
+            Node<E>newNode = new Node<E>(e,prev.next);
+            prev.next = newNode;
+            size++;
+        }
+    }
+    public E removeFirst(){
+        if(size==0)
+            return null;
+        if(head==null){
+            throw new NoSuchElementException();
+        }
+        E elem=head.element;
+        head=head.next;
+        if(head==null)
+            tail=null;
+        size--;
+        return elem;
+    }
+    public E removeLast(){
+        E elem=tail.element;
+        if(head.next==null){
+            head=tail=null;
+        }
+        else{
+            Node<E>prev=node(size-2);
+            prev.next=null;
+            tail = prev;
+            size--;
+        }
+        return elem;
+    }
+
+    public E remove(int index){
+        checkElementIndex(index);
+        if(index==0){
+            return removeFirst();
+        }
+        else{
+            Node<E>prev = node(index-1);
+            E elem = prev.next.element;
+            prev.next=prev.next.next;
+            if(prev.next==null)
+                tail=prev;
+            size--;
+            return elem;
+        }
+    }
