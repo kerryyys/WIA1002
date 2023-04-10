@@ -1,0 +1,47 @@
+
+package lab.test.pkg1.pkgtry;
+
+public class LABTEST1TRY {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Vet vet1=new Vet("Abu Bakar","DVM(India)");
+        Clinic clinic1=new Clinic("Happy Animal Clinic",vet1);
+        Cat cat1=new Cat("Dimmy","Siamese",5,"Diarrhea");
+        Cat cat2=new Cat("Tabby","British Shorthair",6,"Worms");
+        Prescription pre1=new Prescription(cat1,"Tylosin",5);
+        Prescription pre2=new Prescription(cat2,"Pyrantel",3);
+        
+        System.out.println("Clinic: "+clinic1.getName());
+        System.out.println("Vet on Duty: "+vet1.getName()+","+vet1.getQualification());
+        System.out.println();
+        System.out.println("Prescription Note");
+        System.out.println("Name: "+cat2.getName());
+        System.out.println("Breed: "+cat2.getBreed());
+        System.out.println("Weight(KG): "+cat2.getWeight());
+        System.out.println("Sickness: "+cat2.getSickness());
+        System.out.println("Medication: "+pre1.getMedication());
+        System.out.println("Dosage(ml): "+pre1.getDosage());
+        System.out.println();
+        
+        System.out.println("Prescription Note");
+        System.out.println("Name: "+cat1.getName());
+        System.out.println("Breed: "+cat1.getBreed());
+        System.out.println("Weight(KG): "+cat1.getWeight());
+        System.out.println("Sickness: "+cat1.getSickness());
+        System.out.println("Medication: "+pre2.getMedication());
+        System.out.println("Dosage(ml): "+pre2.getDosage());
+        System.out.println();
+        
+        if(cat1.compareTo(cat2)>0){
+            System.out.println("Weight analysis: Dimmy is heavier than Tabby");
+        }
+        else{
+            System.out.println("Weight analysis: Tabby is heavier than Dimmy");
+        }
+     
+    }
+    
+}
