@@ -1,0 +1,31 @@
+public class Vet {
+    private String name;
+    private String qualification;
+    
+    Vet(String name,String qualification){
+        this.name=name;
+        this.qualification=qualification;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getQualification(){
+        return this.qualification;
+    }
+    public void setQualification(String qualification){
+        this.qualification=qualification;
+    }
+    public void giveTreatment(ArrayList<Prescription<? extends Pet>> prescriptions){
+        for(Prescription<? extends Pet> prescription : prescriptions){
+            System.out.println("Prescription for "+prescription.getPet().getBreed()+" "+prescription.getPet().getSickness());
+            System.out.println("Medification: "+prescription.getMedication());
+            System.out.println("Dosage: "+prescription.getDosage());
+        }
+        System.out.println();
+    }
+    
+}
