@@ -20,3 +20,147 @@ Print all the elements in the list
 public void reverse()
 Print all elements in reverse order
 
+import java.util.NoSuchElementException;
+
+public class LinkedList<E> {
+     Node<E> head;
+     Node<E> tail;
+    int size;
+    public void addFirst(E e){
+       Node<E> newNode=new Node<E>(e,head);
+       newNode.next=head;
+        if(tail == null)
+            tail = head;
+        head = newNode;
+        size++;
+    }
+    public void addLast(E e){
+        Node<E> newNode=new Node<E>(e,null);
+        if(tail == null){
+                head=tail=newNode;
+        }
+        else
+            tail.next=newNode;
+        tail=tail.next; //tail=newNode;
+        size++;
+    }
+    public void add(int index, E e){
+        checkPositionIndex(index);
+        if(index==0){
+            addFirst(e);
+        }
+        else if(index==size){
+            addLast(e);
+        }
+        else{
+            Node<E>prev = node(index-1); //=prev.next
+            Node<E>newNode = new Node<E>(e,prev.next);
+            prev.next = newNode;
+            size++;
+        }
+    }
+    public E removeFirst(){
+        if(size==0)
+            return null;
+        if(head==null){
+            throw new NoSuchElementException();
+        }
+        E elem=head.element;
+        head=head.next;
+        if(head==null)
+            tail=null;
+        size--;
+        return elem;
+    }
+    public E removeLast(){
+        E elem=tail.element;
+        if(head.next==null){
+            head=tail=null;
+        }
+        else{
+            Node<E>prev=node(size-2);
+            prev.next=null;
+            tail = prev;
+            size--;
+        }
+        return elem;
+    }
+
+    public E remove(int index){
+        checkElementIndex(index);
+        if(index==0){
+            return removeFirst();
+        }
+        else{
+            Node<E>prev = node(index-1);
+            E elem = prev.next.element;
+            prev.next=prev.next.next;
+            if(prev.next==null)
+                tail=prev;
+            size--;
+            return elem;
+        }
+    }
+-----------------------------------------------------------------
+ public boolean contains(E e){
+        return indexOf(e)>=0;
+    }
+    public E get(int index){
+        checkElementIndex(index);
+        return node(index).element;
+    }
+    public E getFirst(){
+        if(head==null)
+            throw new NoSuchElementException();
+        return head.element;
+    }
+    public E getLast(){
+        if(tail==null)
+            throw new NoSuchElementException();
+        return tail.element;
+    }
+    int indexOf(E e){
+        int index=0;
+        for(Node<E>node=head;node!=null;node=node.next){
+            if(node.element.equals(e))
+                return index;
+            index++;
+        }
+        return -1;
+    }
+    public int lastIndexOf(E e){
+        int index=0;
+        for(Node<E>node=tail;node!=null;node=node.next){
+            if(node.element.equals(e))
+                return index;
+        }
+        return -1;
+    }
+    public void reverse(){ //////test
+        String s="";
+        for(Node<E>current=head;current!=null;current=current.next){
+            //for loop that uses a node-based data stru.It initializes a current node to the head of the list and then iterates over the list until the current node becomes null
+            // (i.e., the end of the list has been reached). In each iteration,
+            // the current node is updated to point to the next node in the list by setting it to current.next.
+            s = current.element+" "+s;
+            System.out.println(s);
+        }
+    }
+    private boolean isElementIndex(int index){
+        return index>=0&&index<size;
+    }
+    private boolean isPositionIndex(int index){
+        return index>=0&&index<=size;
+    }
+    private void checkElementIndex(int index){
+        if(!isElementIndex(index))
+            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+    }
+    private void checkPositionIndex(int index){
+        if(!isPositionIndex(index))
+            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+    }
+    private String outOfBoundMsg(int index){
+        return String.format("Index:%d",index,size);
+    }
+}
