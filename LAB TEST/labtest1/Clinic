@@ -1,0 +1,19 @@
+public class Clinic {
+    private String name;
+    private Vet vet;
+    Clinic(String name,Vet vet){
+        this.name=name;
+        this.vet=vet;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public Vet getVet(){
+        return vet;
+    }
+    public void setVet(Vet vet){
+        this.vet=vet;
+    }
