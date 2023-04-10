@@ -20,108 +20,133 @@ Print all the elements in the list
 public void reverse()
 Print all elements in reverse order
 
-import java.util.NoSuchElementException;
-
-public class LinkedList<E> {
-     Node<E> head;
-     Node<E> tail;
+public class MyLinkedList<E> {
+     private Node<E> head;
+     private Node<E> tail;
     int size;
+    public MyLinkedList(){
+        head=null;
+        tail=null;
+    }
     public void addFirst(E e){
-       Node<E> newNode=new Node<E>(e,head);
-       newNode.next=head;
+       Node<E> newHead=new Node<E>(e);
+        newHead.next=head;
         if(tail == null)
             tail = head;
-        head = newNode;
+        head = newHead;
         size++;
     }
     public void addLast(E e){
-        Node<E> newNode=new Node<E>(e,null);
+        Node<E> newTail=new Node<E>(e);
         if(tail == null){
-                head=tail=newNode;
+            head=tail=newTail;
         }
         else
-            tail.next=newNode;
-        tail=tail.next; //tail=newNode;
+            tail.next=newTail;
+        tail=newTail;
         size++;
     }
     public void add(int index, E e){
-        checkPositionIndex(index);
-        if(index==0){
+        if(index<=0){
             addFirst(e);
+            return;
         }
-        else if(index==size){
+        try{
+            Node<E>beforeToAdd=head;
+            for(int i=1; i<index;i++)
+                beforeToAdd = beforeToAdd.next;
+
+            Node<E> toAdd = new Node<>(e);
+            toAdd.next = beforeToAdd.next;
+            beforeToAdd.next=toAdd;
+            if(toAdd.next == null)
+                tail = toAdd;
+        }catch (NullPointerException ex){
             addLast(e);
-        }
-        else{
-            Node<E>prev = node(index-1); //=prev.next
-            Node<E>newNode = new Node<E>(e,prev.next);
-            prev.next = newNode;
-            size++;
         }
     }
     public E removeFirst(){
-        if(size==0)
-            return null;
-        if(head==null){
-            throw new NoSuchElementException();
-        }
-        E elem=head.element;
-        head=head.next;
-        if(head==null)
-            tail=null;
-        size--;
-        return elem;
+        if (head == null) return null;
+        E item = head.element;
+        head = head.next;
+        if (head == null) tail = null;
+        return item;
     }
     public E removeLast(){
-        E elem=tail.element;
-        if(head.next==null){
-            head=tail=null;
+        if (tail == null) return null;
+        E item = tail.element;
+        if (head == tail) {
+            head = tail = null;
+            return item;
         }
-        else{
-            Node<E>prev=node(size-2);
-            prev.next=null;
-            tail = prev;
-            size--;
-        }
-        return elem;
+        Node<E> beforeLast = head;
+        while (beforeLast.next.next != null)
+            beforeLast = beforeLast.next;
+        beforeLast.next = null;
+        tail = beforeLast;
+
+        return item;
     }
 
     public E remove(int index){
-        checkElementIndex(index);
-        if(index==0){
-            return removeFirst();
-        }
-        else{
-            Node<E>prev = node(index-1);
-            E elem = prev.next.element;
-            prev.next=prev.next.next;
-            if(prev.next==null)
-                tail=prev;
-            size--;
-            return elem;
+        if (index < 0) return null;
+        if (index == 0) return removeFirst();
+
+        try {
+            Node<E> beforeToRemove = head;
+            for (int i = 1; i < index; i++)
+                beforeToRemove = beforeToRemove.next;
+            E item = beforeToRemove.next.element;
+            beforeToRemove.next = beforeToRemove.next.next;
+            if (beforeToRemove.next == null) tail = beforeToRemove;
+
+            return item;
+
+        } catch (NullPointerException ex) {
+            return null;
         }
     }
------------------------------------------------------------------
- public boolean contains(E e){
-        return indexOf(e)>=0;
+
+    public void add(E e) {
+        addLast(e);
     }
-    public E get(int index){
-        checkElementIndex(index);
-        return node(index).element;
+
+    public boolean contains(E e){
+        for (Node<E> current = head; current != null; current = current.next)
+            if (e.equals(current.element))
+                return true;
+        return false;
     }
     public E getFirst(){
         if(head==null)
-            throw new NoSuchElementException();
+            return null;
         return head.element;
     }
     public E getLast(){
         if(tail==null)
-            throw new NoSuchElementException();
+            return null;
         return tail.element;
     }
-    int indexOf(E e){
+    public E get(int index){
+        if (index < 0) return null;
+        try {
+            Node<E> current = head;
+            while (index-- > 0)
+                current = current.next;
+            return current.element;
+        } catch (NullPointerException ex) {
+            return null;
+        }
+    }
+    Node<E>node(int index){
+        Node<E>node=head;
+        for(int i=0;i<index;i++)
+            node=node.next;
+        return node;
+    }
+    public int indexOf(E e){
         int index=0;
-        for(Node<E>node=head;node!=null;node=node.next){
+        for(Node <E> node = head; node!=null; node = node.next){
             if(node.element.equals(e))
                 return index;
             index++;
@@ -129,14 +154,39 @@ public class LinkedList<E> {
         return -1;
     }
     public int lastIndexOf(E e){
-        int index=0;
-        for(Node<E>node=tail;node!=null;node=node.next){
-            if(node.element.equals(e))
-                return index;
+        int index = -1;
+        int i = 0;
+        for (Node<E> current = head; current != null; current = current.next) {
+            if (e.equals(current.element))
+                index = i;
+            i++;
         }
-        return -1;
+        return index;
     }
-    public void reverse(){ //////test
+    public E set(int index,E e){
+        if (index < 0) return null;
+        try {
+            Node<E> current = head;
+            while (index-- > 0)
+                current = current.next;
+
+            E temp = current.element;
+            current.element = e;
+            return temp;
+
+        } catch (NullPointerException ex) {
+            return null;
+        }
+    }
+    public void clear(){
+       head=tail=null;
+    }
+    public void print(){
+        for (Node<E> current = head; current != null; current = current.next)
+            System.out.print(current.element + " ");
+        System.out.println();
+    }
+    public void reverse(){
         String s="";
         for(Node<E>current=head;current!=null;current=current.next){
             //for loop that uses a node-based data stru.It initializes a current node to the head of the list and then iterates over the list until the current node becomes null
@@ -145,22 +195,5 @@ public class LinkedList<E> {
             s = current.element+" "+s;
             System.out.println(s);
         }
-    }
-    private boolean isElementIndex(int index){
-        return index>=0&&index<size;
-    }
-    private boolean isPositionIndex(int index){
-        return index>=0&&index<=size;
-    }
-    private void checkElementIndex(int index){
-        if(!isElementIndex(index))
-            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
-    }
-    private void checkPositionIndex(int index){
-        if(!isPositionIndex(index))
-            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
-    }
-    private String outOfBoundMsg(int index){
-        return String.format("Index:%d",index,size);
     }
 }
