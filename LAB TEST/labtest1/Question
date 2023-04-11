@@ -1,0 +1,72 @@
+Scenario
+The newly opened Happy Animal Clinic needs a customized system to support its daily
+operation. The customized system, which uses Java, should provide systematic access to the
+data of animals treated at the facility. As a fresh computer science graduate out of Universiti
+Malaya, you find this opportunity hard to miss. Upon requesting the system requirements
+from Happy Animal Clinic, you find the tasks you need to address as follows.
+List of Tasks
+1. Create a class called Pet that should hold all critical information about pets getting
+treatment at the clinic. The class should contain the breed, weight and sickness of
+the pets.
+a. The class should implement the Comparable interface as it needs to compare the
+pets' weights.
+b. Generate the appropriate getter and setter methods in the class.
+2. Create a Cat class that inherits from the Pet. The Cat class has an additional name
+variable in addition to those in Pet.
+a. Generate the appropriate getter and setter methods in the class.
+3. Create a generic Prescription class that takes three parameters. The first parameter
+must be a subclass of Pet, while the remaining parameters should store the
+medication and dosage, respectively.
+4. Create a Vet class that contains the name and qualification of the practitioner.
+a. Create a giveTreatment method that returns nothing. The method takes one
+parameter, which is an ArrayList of the Prescription object. In the method, loop
+through the ArrayList and print each object element.
+5. Create a Clinic class that contains the main method. The class also contains the name
+of the clinic and a Vet object containing information about the practitioner.
+a. Create a getter method to retrieve the Vet object that contains the practitioner
+information.
+b. Within the main method, perform the following:
+i. Instantiate a Clinic object with the following information:
+Name: Happy Animal Clinic
+Vet’s Name: Abu Bakar
+Vet’s Qualification: DVM(India)
+ii. Instantiate two Cat objects with the following information:
+Name: Dimmy
+Breed: Siamese
+Weight: 5
+Sickness: Diarrhea
+
+Name: Tabby
+Breed: British Shorthair
+Weight: 6
+Sickness: Worms
+iii. Instantiate an ArrayList of Prescription. Add the following entries into the
+ArrayList:
+Pet: Cat Object 1
+Medication: Tylosin
+Dosage: 5
+Pet: Cat Object 2
+Medication: Pyrantel
+Dosage: 3
+To test the program:
+1. Print all the information entered above, as demonstrated in the expected output below.
+2. Determine which pet is the heaviest.
+
+Expected output
+Clinic: Happy Animal Clinic
+Vet on Duty: Abu Bakar, DVM(India)
+Prescription Note
+Name: Tabby
+Breed: British Shorthair
+Weight (KG): 6
+Sickness: Worms
+Medication: Tylosin
+Dosage (ml): 5
+Prescription Note
+Name: Dimmy
+Breed: Siamese
+Weight (KG): 5
+Sickness: Diarrhea
+Medication: Pyrantel
+Dosage (ml): 3
+Weight analysis: Tabby is heavier than Dimmy
