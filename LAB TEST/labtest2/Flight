@@ -1,0 +1,31 @@
+package lab.test.pkg1.pkgtry;
+
+import java.util.ArrayList;
+
+public class Flight extends Airline {
+    private Item<String> flight;
+    private Item<String> meal;
+    
+    Flight(String airline_name, String flight_number,Account passenger,Item<String> flight,Item<String> meal,ArrayList<Account>crew){
+        super(airline_name, flight_number,passenger,crew);
+        this.flight=flight;
+        this.meal=meal;
+    }
+    public Item<String> getFlight(){
+        return this.flight;
+    }
+    public void setFlight(Item<String> flight){
+        this.flight=flight;
+    }
+    public Item<String> getMeal(){
+        return this.meal;
+    }
+    public void setMeal(Item<String> meal){
+        this.meal=meal;
+    }
+    public int comapreTo(Flight other){
+        int crew1=this.getNumCrew();
+        int crew2=other.getNumCrew();
+        return Integer.compare(crew1,crew2);
+    }
+}
