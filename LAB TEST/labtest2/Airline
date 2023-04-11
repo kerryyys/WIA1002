@@ -1,0 +1,46 @@
+package lab.test.pkg1.pkgtry;
+
+import java.util.ArrayList;
+
+public class Airline {
+private String airline_name;
+private String flight_number;
+private Account passenger;
+private ArrayList<Account> crew;
+Airline(String airline_name, String flight_number,Account passenger,ArrayList<Account>crew){
+    this.airline_name=airline_name;
+    this.flight_number=flight_number;
+    this.passenger=passenger;
+    this.crew=crew;
+}
+public String getAirline(){
+    return this.airline_name;
+}
+public String getFlightN(){
+    return this.flight_number;
+}
+public Account getPassenger(){
+    return this.passenger;
+}
+public ArrayList<Account> getCrew(){
+    return this.crew;
+}
+public void setAirline(String airline_name){
+    this.airline_name=airline_name;
+}
+public void setFlightN(String flight){
+    this.flight_number=flight;
+}
+public void setPassenger(Account passenger){
+    this.passenger=passenger;
+}
+public void setCrew(ArrayList<Account> crew){
+    this.crew=crew;
+}
+public void addCrew(Account crew){
+    this.crew.add(crew);
+}
+public int getNumCrew(){
+    return this.crew.size();
+}
+}
