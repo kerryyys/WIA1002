@@ -2,14 +2,10 @@ Write the generic Node class consisting of two components of a node (i.e.:elemen
 with a default construct and a constructor that accepts an item assigned to the initially declared element variable.
 
 public class Node<E> {
-    private E element;
-    private Node<E> next;
-    Node(){
-        this.element=null;
-        this.next=null;
-    }
-    Node(E item){
-        this.element=item;
-        this.next=null;
+    E element;
+    Node<E> next;
+    Node(){}
+    Node(E element){
+        this.element=element;
     }
 }
