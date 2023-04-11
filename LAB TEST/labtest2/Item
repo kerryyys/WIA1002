@@ -1,0 +1,22 @@
+package lab.test.pkg1.pkgtry;
+
+public class Item<T> {
+    private T item;
+    private int price;
+    Item(T item,int price){
+        this.item=item;
+        this.price=price;
+    }
+    public T getItem(){
+        return this.item;
+    }
+    public void setItem(T item){
+        this.item=item;
+    }
+    public int getPrice(){
+        return this.price;
+    }
+    public void setPrice(int price){
+        this.price=price;
+    }
+}
