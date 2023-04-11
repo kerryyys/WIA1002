@@ -1,0 +1,105 @@
+package lab.test.pkg1.pkgtry;
+import java.util.ArrayList;
+import java.util.List;
+public class Airport {
+    
+    public static void main(String[] args) {
+    Account passenger1=new Account("1001", "Amy", "amy@gmail.com", "012-9887765");    
+    Account passenger2=new Account("1002", "Jessica", "jessica@gmail.com", "019-2562398"); 
+    Account passenger3=new Account("1003", "Brandon", "brandon@gmail.com", "018-3234546"); 
+
+    ArrayList<Account> crew1=new ArrayList<Account>();
+    crew1.add(new Account(null, "Joan", null, null));
+    crew1.add(new Account(null, "Daniel", null, null));
+    crew1.add(new Account(null, "Matt", null, null));
+    
+    ArrayList<Account> crew2=new ArrayList<Account>();
+    crew2.add(new Account(null, "Myra" ,null, null));
+    crew2.add(new Account(null, "Lawrence", null, null));
+    
+    ArrayList<Account> crew3=new ArrayList<Account>();
+    crew3.add(new Account(null, "Fred", null, null));
+    crew3.add(new Account(null, "Emily", null, null));
+    crew3.add(new Account(null, "Kendrick", null, null));
+    crew3.add(new Account(null, "Olivia", null, null));
+    
+    Item flight1=new Item("Economy",3932);
+    Item flight2=new Item("Economy",5476);
+    Item flight3=new Item("Business",14210);
+    
+    Item meal1=new Item("Deep Fried Chicken Don,",25);
+    Item meal2=new Item("Sandwiches",12);
+    Item meal3=new Item("Chinese Roasted Duck with Rice",39);
+
+    Flight anaFlight = new Flight("ANA - All Nippon Airways", "NH804",passenger1,flight1,meal1,crew1);
+    Flight singaporeAirlinesFlight = new Flight("Singapore Airlines", "SQ103",passenger2, flight2,meal2,crew2);
+    Flight malaysiaA=new Flight("Malaysia Airlines","MH104",passenger3,flight3, meal3,crew3);
+    
+    System.out.println("Airline Name: "+anaFlight.getAirline());
+    System.out.println("Flight Number: "+anaFlight.getFlightN());
+    System.out.println("Passenger Info:");
+    System.out.println("User ID: "+ passenger1.getID());
+    System.out.println("Name: "+passenger1.getName());
+    System.out.println("Email: "+passenger1.getEmail());
+    System.out.println("Contact Num: "+passenger1.getNumber());
+    System.out.println("[Item Name: "+flight1.getItem());
+    System.out.println("Item Price: RM"+flight1.getPrice());
+    System.out.println("Item Name: "+meal1.getItem());
+    System.out.println("Item Price: RM"+meal1.getPrice() +"]");
+    System.out.println("");
+    
+    System.out.println("Airline Name: "+singaporeAirlinesFlight.getAirline());
+    System.out.println("Flight Number: "+singaporeAirlinesFlight.getFlightN());
+    System.out.println("Passenger Info:");
+    System.out.println("User ID: "+ passenger2.getID());
+    System.out.println("Name: "+passenger2.getName());
+    System.out.println("Email: "+passenger2.getEmail());
+    System.out.println("Contact Num: "+passenger2.getNumber());
+    System.out.println("[Item Name: "+flight2.getItem());
+    System.out.println("Item Price: RM"+flight2.getPrice()+"]");
+    System.out.println("{Item Name: "+meal2.getItem());
+    System.out.println("Item Price: RM"+meal2.getPrice() +"]");
+    System.out.println("");
+    
+    System.out.println("Airline Name: "+malaysiaA.getAirline());
+    System.out.println("Flight Number: "+malaysiaA.getFlightN());
+    System.out.println("Passenger Info:");
+    System.out.println("User ID: "+ passenger3.getID());
+    System.out.println("Name: "+passenger3.getName());
+    System.out.println("Email: "+passenger3.getEmail());
+    System.out.println("Contact Num: "+passenger3.getNumber());
+    System.out.println("[Item Name: "+flight3.getItem());
+    System.out.println("Item Price: RM"+flight3.getPrice());
+    System.out.println("Item Name: "+meal3.getItem());
+    System.out.println("Item Price: RM"+meal3.getPrice() +"]");
+    System.out.println("");
+    
+    //compare crew Number
+    
+    if(anaFlight.comapreTo(malaysiaA)>0){
+        System.out.println("Flight ANA has a larger cabin crew than Flight Malaysia Airlines");
+    }
+    else{
+       System.out.println("Flight Malaysia Airlines has a larger cabin crew than Flight ANA"); 
+    }
+        List<Item> flights=new ArrayList<>();
+        flights.add(flight1);
+        flights.add(flight2);
+        flights.add(flight3);
+        Item mostEX=max(flights);
+        System.out.println("The most expensive flight ticket is RM"+mostEX.getPrice());
+        
+    }
+    public static <T extends Item> T max(List<T> items) {
+    T maxItem = null;
+    double maxPrice = 0.0;
+    for (T item : items) {
+        if (item.getPrice() > maxPrice) {
+            maxPrice = item.getPrice();
+            maxItem = item;
+        }
+    }
+    return maxItem;
+}
+    
+}
