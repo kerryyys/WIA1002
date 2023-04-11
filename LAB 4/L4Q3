@@ -94,6 +94,7 @@ public class MyLinkedList<E> {
         }
     }
 
-    public void add(E e) {
+   /* public void add(E e) {
         addLast(e);
     }
+    */
