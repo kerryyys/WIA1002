@@ -1,0 +1,97 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class UNOCard {
+    private String color;
+    private String value;
+
+    public UNOCard(String color, String value) {
+        this.color = color;
+        this.value = value;
+    }
+
+    public String toString() {
+        return color + " " + value;
+    }
+    public static ArrayList<UNOCard> drawArray(int numDraws) {
+        ArrayList<UNOCard> drawnCards = new ArrayList<UNOCard>();
+
+        String[] colors = {"Red", "Yellow", "Green", "Blue"};
+        String[] values = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Skip", "Reverse", "Draw Two"};
+
+        for (int i = 0; i < numDraws; i++) {
+            String color = colors[(int) (Math.random() * colors.length)];
+            String value = values[(int) (Math.random() * values.length)];
+
+            UNOCard card = new UNOCard(color, value);
+            drawnCards.add(card);
+        }
+
+        return drawnCards;
+    }
+
+    public static LinkedList<UNOCard> drawLinkedList(int numDraws) {
+        LinkedList<UNOCard> drawnCards = new LinkedList<UNOCard>();
+
+        String[] colors = {"Red", "Yellow", "Green", "Blue"};
+        String[] values = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Skip", "Reverse", "Draw Two"};
+
+        for (int i = 0; i < numDraws; i++) {
+            String color = colors[(int) (Math.random() * colors.length)];
+            String value = values[(int) (Math.random() * values.length)];
+
+            UNOCard card = new UNOCard(color, value);
+            drawnCards.add(card);
+        }
+
+        return drawnCards;
+    }
+}
+
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import static lab2.UNOCard.drawArray;
+import static lab2.UNOCard.drawLinkedList;
+
+public class LAB2 {
+
+    public static void main(String[] args) {
+         // Array implementation
+        System.out.println("Array Implementation");
+        System.out.println("Player 1 draws 7 times");
+        ArrayList<UNOCard> player1Array = drawArray(7);
+        for (UNOCard card : player1Array) {
+            System.out.print(card.toString() + " :: ");
+        }
+        System.out.println();
+
+        System.out.println("Array Implementation");
+        System.out.println("Player 2 draws 7 times");
+        ArrayList<UNOCard> player2Array = drawArray(7);
+        for (UNOCard card : player2Array) {
+            System.out.print(card.toString() + " :: ");
+        }
+        System.out.println();
+
+        // LinkedList implementation
+        System.out.println("LinkedList Implementation");
+        System.out.println("Player 1 draws 7 times");
+        LinkedList<UNOCard> player1List = drawLinkedList(7);
+        for (UNOCard card : player1List) {
+            System.out.print(card.toString() + " :: ");
+        }
+        System.out.println();
+
+        System.out.println("LinkedList Implementation");
+        System.out.println("Player 2 draws 7 times");
+        LinkedList<UNOCard> player2List = drawLinkedList(7);
+        for (UNOCard card : player2List) {
+            System.out.print(card.toString() + " :: ");
+        }
+        System.out.println();
+        
+    }
+    
+}
