@@ -2,19 +2,12 @@ Write a class called MyLinkedList. The class should have the following :
 a. Default constructor
 b. Nodes for head and tail
 
-public class MyLinkedList <E> {
+public class Linked <E> {
     private Node<E> head;
     private Node<E> tail;
-    MyLinkedList(){
+    Linked(){
         this.head=null;
         this.tail=null;
     }
-    public class Node<E>{
-    private E element;
-    private Node<E>next;
-    public Node(E element, Node<E> next){
-        this.element=element;
-        this.next=next;
-    }
-    }
+    
 }
