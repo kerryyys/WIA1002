@@ -1,0 +1,18 @@
+public class MainLab {
+    public static void main(String[] args) {
+        NodeLab<PersonLab> anwarIbrahim = new NodeLab<>(new PersonLab("Anwar Ibrahim", 75));
+        NodeLab<PersonLab> wanAzizah = new NodeLab<>(new PersonLab("Wan Azizah", 70));
+        NodeLab<PersonLab> nurIzzah = new NodeLab<>(new PersonLab("Nur Izzah Anwar", 42));
+
+        anwarIbrahim.setEdge1("wife", wanAzizah);
+        wanAzizah.setEdge1("husband", anwarIbrahim);
+        anwarIbrahim.setEdge2("daughter", nurIzzah);
+        nurIzzah.setEdge1("father", anwarIbrahim);
+        wanAzizah.setEdge2("daughter", nurIzzah);
+        nurIzzah.setEdge2("mother", wanAzizah);
+
+        anwarIbrahim.printEdgesAndNodes();
+        wanAzizah.printEdgesAndNodes();
+        nurIzzah.printEdgesAndNodes();
+    }
+}
