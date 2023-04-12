@@ -31,5 +31,13 @@ public class NodeLab <ValueType> {
         System.out.println("---------------------------------------------");
         System.out.println();
     }
-
+public NodeLab<ValueType> traverse(String edgeName) {
+        if (edgeName.equals(edgeName1)) {
+            return edgeNode1;
+        } else if (edgeName.equals(edgeName2)) {
+            return edgeNode2;
+        } else {
+            return null;
+        }
+    }
     }
