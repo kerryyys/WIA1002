@@ -1,0 +1,35 @@
+public class NodeLab <ValueType> {
+    private ValueType value;
+    private String edgeName1;
+    private String edgeName2;
+    private NodeLab<ValueType> edgeNode1;
+    private NodeLab<ValueType> edgeNode2;
+
+    public NodeLab(ValueType value){
+        this.value = value;
+    }
+    public void setEdge1(String edgeName, NodeLab<ValueType> node){
+        this.edgeName1=edgeName;
+        this.edgeNode1=node;
+    }
+    public void setEdge2(String edgeName, NodeLab<ValueType> node){
+        this.edgeName2=edgeName;
+        this.edgeNode2=node;
+    }
+    public ValueType getValue(){
+        return this.value;
+    }
+    public void printEdgesAndNodes(){
+        System.out.println("---------------------------------------------");
+        System.out.println(value);
+        if (edgeName1 != null && edgeNode1 != null) {
+            System.out.printf(" :%s->\n  %s\n", edgeName1, edgeNode1.getValue()); //bcuz println can only input String so java will direct call toString
+        }
+        if (edgeName2 != null && edgeNode2 != null) {
+            System.out.printf(" :%s->\n  %s\n", edgeName2, edgeNode2.getValue());
+        }
+        System.out.println("---------------------------------------------");
+        System.out.println();
+    }
+
+    }
