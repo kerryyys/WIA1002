@@ -1,0 +1,33 @@
+public class Item<T> {
+    private T name;
+    private T price;
+
+    public Item(T name, T price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public T getName() {
+        return name;
+    }
+
+    public T getPrice() {
+        return price;
+    }
+
+    public void setName(T name) {
+        this.name = name;
+    }
+
+    public void setPrice(T price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "item='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+}
