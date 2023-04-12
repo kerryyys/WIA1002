@@ -1,0 +1,11 @@
+public class PersonLab {
+    private String name;
+    private int age;
+    public PersonLab(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String toString() {
+        return String.format("%s (age=%s)", this.name, this.age);
+    }
+}
