@@ -188,12 +188,12 @@ public class MyLinkedList<E> {
     }
     public void reverse(){
         String s="";
-        for(Node<E>current=head;current!=null;current=current.next){
+        for(Node<E>current=head;current!=null;current=current.next)
             //for loop that uses a node-based data stru.It initializes a current node to the head of the list and then iterates over the list until the current node becomes null
             // (i.e., the end of the list has been reached). In each iteration,
             // the current node is updated to point to the next node in the list by setting it to current.next.
             s = current.element+" "+s;
             System.out.println(s);
-        }
+        
     }
 }
