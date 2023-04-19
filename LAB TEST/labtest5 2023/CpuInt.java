@@ -13,18 +13,6 @@ public class CpuInt implements NumberInterface<CpuInt> {
     public Integer toInteger(){
         return this.value;
     }
-    public String getIdentifier(){
-        return "CpuInt";
-    }
-    @Override
-    public boolean isPositive() {
-        return this.value >= 0;
-    }
-
-    @Override
-    public boolean isEven() {
-        return this.value % 2 == 0;
-    }
         @Override
         public String toString () {
         return String.format("%s[%d]", getDevice(), this.value);
