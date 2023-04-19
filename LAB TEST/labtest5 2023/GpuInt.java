@@ -12,21 +12,6 @@ public class GpuInt implements NumberInterface<GpuInt> {
     public Integer toInteger(){
         return this.value;
     }
-// Metadata
-@Override
-public String getIdentifier() {
-    return "GpuInt";
-}
-
-    @Override
-    public boolean isPositive() {
-        return this.value >= 0;
-    }
-
-    @Override
-    public boolean isEven() {
-        return this.value % 2 == 0;
-    }
 
     @Override
     public String toString() {
