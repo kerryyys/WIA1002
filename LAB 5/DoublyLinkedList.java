@@ -31,7 +31,7 @@ public DoublyLinkedList(){
             addFirst(e);
         else if (index == size){
             addLast(e);
-        return；
+        return；                        //can break the method earlier
             }
         else {     
             Node<E> temp = head;
