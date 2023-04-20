@@ -29,9 +29,11 @@ public DoublyLinkedList(){
 
         if(index == 0)
             addFirst(e);
-        else if (index == size)
+        else if (index == size){
             addLast(e);
-        else {     //not sure, got change
+        return；
+            }
+        else {     
             Node<E> temp = head;
             if(index < size-1) {
                 for (int i = 0; i < index; i++)
@@ -127,7 +129,7 @@ public DoublyLinkedList(){
         DoublyLinkedList<Integer> intList=new DoublyLinkedList<>();
 
         intList.addFirst(1);
-        intList.addLast(10);
+        intList.add(1,10);
         intList.addLast(100);
         intList.add(2,2);
 
