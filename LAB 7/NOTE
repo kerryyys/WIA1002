@@ -1,1 +1,4 @@
-
+enqueue, dequeue
+use linkedlist
+priority queue-highest priority remove first
+peek,poll,order,
