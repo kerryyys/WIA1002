@@ -1,4 +1,7 @@
 enqueue, dequeue
 use linkedlist
 priority queue-highest priority remove first
-peek,poll,order,
+peek,poll,order...
+
+The purpose of resizing is to ensure that there is enough space in the underlying array to add more elements to the priority queue.
+When the size of the queue reaches the capacity of the underlying array, the queue needs to be resized to create additional space for new elements to be added.
