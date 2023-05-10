@@ -5,3 +5,20 @@ peek,poll,order...
 
 The purpose of resizing is to ensure that there is enough space in the underlying array to add more elements to the priority queue.
 When the size of the queue reaches the capacity of the underlying array, the queue needs to be resized to create additional space for new elements to be added.
+
+
+PriorityQueue class from java
+import java.util.PriorityQueue
+implemented interface java.util.Queue<E>
+PriorityQueue()
+-create a priorityqueue with the default initial capacity that orders its elements according to their natural ordering
+PriorityQueue(Collections<? extends E> c)
+-creates a PriorityQueue containing the elements in the specified collection
+PriorityQueue(int initialCapacity)
+-creates a PriorityQueue wuth the specified initial capacity that orders its elements according to their natural ordering.
+PriorityQueue(int initialCapacity, Comparator<? super E> comparator)
+-creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
+PriorityQueue(PriorityQueue<? extends E> c)
+-creates a PriorityQueue containing the elements in the specified priority queue.
+PriorityQueue(SortedSet<? extends E> c)
+- creates a PriorityQueue containing the elements in the specifies sorted set.
