@@ -1,14 +1,14 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-//u like to use HashMap, what is the benefit and what can be ganti by it
+
 public class Transaction extends Feature<Double> {
 
     Transaction(List<Data<Double>> data){
         super(data);
     }
 
-    //dataCleaning method also not understand
+    
     public Transaction dataCleaning(){
         Iterator<Data<Double>> iterator = getData().iterator();
         while(iterator.hasNext()){
