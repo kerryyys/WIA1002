@@ -1,32 +1,27 @@
 public class Coordinate implements Comparable<Coordinate> {
-    double latitude;
-    double longitude;
+    private double latitude;
+    private double longitude;
 
-    Coordinate(double latitude, double longitude) {
+    public Coordinate(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
+    @Override
+    public int compareTo(Coordinate o) {
+        throw new UnsupportedOperationException();
+    }
+
     public double getLatitude() {
-        return this.latitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return this.longitude;
-    }
-
-    public boolean isValidCoordinate() {
-        return this.latitude >= -90 && this.latitude <= 90 
-                && this.longitude >= -180 && this.longitude <= 180;
+        return longitude;
     }
 
     @Override
     public String toString() {
-        return String.format("%6.1f, %6.1f", this.latitude, this.longitude);
-    }
-
-    @Override
-    public int compareTo(Coordinate o) {
-        return this.latitude != o.latitude ? Double.compare(this.latitude, o.latitude) : Double.compare(this.longitude, o.longitude);
+        return String.format("%10.2f %10.2f", latitude, longitude);
     }
 }
