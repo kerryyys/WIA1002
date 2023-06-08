@@ -6,7 +6,7 @@ public class L10Q4 {
      int[] array = {10,34,2,56,7,67,88,42};
         InsertionSort(array);
         for(int i = 0; i<array.length; i++)
-        System.out.println(array + " ");
+        System.out.print(array[i] + " ");
     }
     public static void InsertionSort(int[] array) {
         for(int i = 1; i< array.length; i++){
