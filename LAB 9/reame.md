@@ -11,7 +11,7 @@ Parameters and Return Value: Recursive methods typically take one or more parame
 Flow of Execution: When a recursive method is called, it executes the base case(s) if the termination condition is met. Otherwise, it executes the recursive step, making one or more recursive calls to itself with modified parameters. The method continues to call itself until the base case(s) are reached, and then it starts returning the results back to the initial call.<br>
 
     public class FactorialCalculator {
-    public static int factorial(int n) {
+        public static int factorial(int n) {
         // Base case: factorial of 0 or 1 is 1
         if (n == 0 || n == 1) {
             return 1;
@@ -24,6 +24,6 @@ Flow of Execution: When a recursive method is called, it executes the base case(
         int number = 5;
         int result = factorial(number);
         System.out.println("Factorial of " + number + " is " + result);
+        }
     }
-}
 
