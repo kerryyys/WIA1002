@@ -1,0 +1,32 @@
+package LabTest;
+
+import java.util.ArrayList;
+
+public final class TheHandStack<TH> {
+    private final ArrayList<TH> stack = new ArrayList<>();
+
+    public void push(TH element) {
+        stack.add(element);
+    }
+
+    public TH pop() {
+        return stack.remove(0);
+    }
+
+    public TH peek() {
+        return stack.get(0);
+    }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public int size() {
+        return stack.size();
+    }
+
+    @Override
+    public String toString() {
+        return stack.toString();
+    }
+}
