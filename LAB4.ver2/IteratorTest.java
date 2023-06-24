@@ -1,7 +1,5 @@
 package LinkedList;
 
-import java.util.Iterator;
-
 public class IteratorTest {
     public static void main(String[] args) {
         LinkedList<String> linkedList = new LinkedList<>();

@@ -356,13 +356,28 @@ public class LinkedList<E extends Comparable<E>> {
     }
 
    public void removeWordsWithCharacter(char c) {
-    Iterator<E> iterator = listIterator();
-    while (iterator.hasNext()) {
-        E element = iterator.next();
+    ListNode<E> current = head;
+    while (current != null) {
+        E element = current.getElement();
         String word = element.toString();
         if (word.contains(Character.toString(c))) {
-            iterator.remove();
+            if (current == head) {
+                head = current.getNext();
+                if (head != null) {
+                    head.prev = null;
+                }
+            } else if (current == tail) {
+                tail = current.prev;
+                tail.setNext(null);
+            } else {
+                ListNode<E> prev = current.prev;
+                ListNode<E> next = current.getNext();
+                prev.setNext(next);
+                next.prev = prev;
+            }
+            size--;
         }
+        current = current.getNext();
     }
 }
 }
