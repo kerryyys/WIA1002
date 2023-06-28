@@ -10,4 +10,5 @@ Lab 7 = Graph<br>
 Lab 8 = Queue<br>
 Lab 9 = Recursion<br>
 Lab 10 = Search and Sort<br>
-LaB 11 = BST<br>
+Lab 11 = BST<br>
+Lab Version 2 has different order
