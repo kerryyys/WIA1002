@@ -15,12 +15,12 @@ Lab 11 = BST<br>
 Lab Version 2 has different order<br>
 Lab1 = OOP<br>
 Lab 2 =  <br>
-Lab 3 =  <br>
+Lab 3 = Bags <br>
 Lab 4 =  <br>
 Lab 5 = Stack<br>
 Lab 6 = Queue<br>
 Lab 7 = BST<br>
 Lab 8 = Sorting<br>
-Lab 9 =  <br>
-Lab 10 =  <br>
+Lab 9 = Searching <br>
+Lab 10 = Graph  <br>
 
