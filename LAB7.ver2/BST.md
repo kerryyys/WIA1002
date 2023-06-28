@@ -1,14 +1,14 @@
-printInorder(node)
-├─ Check if node is not null
-│   ├─ Call printInorder(node.left)
-│   │   ├─ Check if node.left is not null
-│   │   │   └─ Call printInorder(node.left.left)
-│   │   └─ Print "<-- " + node.left.data
-│   ├─ Print "<-- " + node.data
-│   └─ Call printInorder(node.right)
-│       ├─ Check if node.right is not null
-│       │   └─ Call printInorder(node.right.left)
-│       └─ Print "<-- " + node.right.data
-└─ Finish
+printInorder(node)<br>
+├─ Check if node is not null<br>
+│   ├─ Call printInorder(node.left)<br>
+│   │   ├─ Check if node.left is not null<br>
+│   │   │   └─ Call printInorder(node.left.left)<br>
+│   │   └─ Print "<-- " + node.left.data<br>
+│   ├─ Print "<-- " + node.data<br>
+│   └─ Call printInorder(node.right)<br>
+│       ├─ Check if node.right is not null<br>
+│       │   └─ Call printInorder(node.right.left)<br>
+│       └─ Print "<-- " + node.right.data<br>
+└─ Finish<br>
 
 
