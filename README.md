@@ -12,7 +12,7 @@ Lab 9 = Recursion<br>
 Lab 10 = Search and Sort<br>
 Lab 11 = BST<br>
 
-Lab Version 2 has different order<br>
+Lab Version 2<br>
 Lab1 = OOP<br>
 Lab 2 =  <br>
 Lab 3 = Bags <br>
