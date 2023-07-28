@@ -14,9 +14,9 @@ Lab 11 = BST<br>
 
 Lab Version 2<br>
 Lab1 = OOP<br>
-Lab 2 =  <br>
+Lab 2 = ADT <br>
 Lab 3 = Bags <br>
-Lab 4 =  <br>
+Lab 4 = LinkedList <br>
 Lab 5 = Stack<br>
 Lab 6 = Queue<br>
 Lab 7 = BST<br>
