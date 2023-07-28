@@ -1,0 +1,30 @@
+Question 1
+Based on the Java library java.util.LinkedList, develop ExamStack, a generic stack class. This class should have 4 methods only, i.e. peep, pop, push and getSize.
+[3 marks]
+
+Question 2
+Arithmetic is an elementary study in mathematics which involves operands and operators. Fundamental operations involving addition, substraction, multiplication and division are taught in primary education to ensure students build a strong foundation for other topics in mathemtics. To assist students in prmary education, you are asked by their teachers to write a program that reads arithmetic expressions from users inputs and produces answers immediately. You are required to use only the ExamStack class develop in Question 1 to solve the problem, and no other data structures are allowed.
+
+You are also to required to evaluate the expressions as given, do not convert them to Polish Notations,Reverse Polish Notation or other forms for evualations. Since the program is developed for primary education, you only need to evaluate addition, substration, multiplication, divisionand braces. Futhermore, all the operands are single digit positive integers but the output can be real numbers. You can assume the input from the users are always valid arithmetic expressions, and users will not provide expressions that involve division by 0.
+
+Sample inputs and outputs of the program are given below:
+Enter expressionto evaluate: 5-3+4  5-3+4 = 6.0
+Enter expressionto evaluate: 2+4*5-(9+7*6)  2+4*5-(9+7*6) = -29.0
+Enter expressionto evaluate: 9-2*(5/2-3/5+2)/6 9-2*(5/2-3/5+2)/6 = 7.7
+[12 marks]
+
+Question 3
+
+Question 4
+
+Question 5
+
+Question 6
+Figure below shows a binary search tree.
+
+(a) Write the sequence of the nodes if the tree is traversed with inorder, preorder and postorder traversal.
+
+(b) In coomon scenario, deletion of a node in a binary search tree involves looking for the rightmost node of the left child and replace the deleted node with the rightmost node found, if a left child exists. Reimplement the solution for node deletion and use leftmost node of the right child to replace the deleted node instead. Compsre the outcome of the original solution and the reimplemented solution for the node deletion of "12", "34", and "66".
+
+(c) Conceptually, a binary search tree and a circular doubly linked list looks similar. Both consist of a  node element, and 2 variables that points to another node. Write a program to convert binary search tree to a circular doubly linked list.
+[HINTS] A recursive concept could help.
